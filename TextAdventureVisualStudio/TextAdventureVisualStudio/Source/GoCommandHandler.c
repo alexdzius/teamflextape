@@ -36,7 +36,14 @@ void HandleGoCommand(CommandData *command, GameState *gameState, WorldData *worl
 	if (Room_GetNextRoomIndex(currentRoom, command->noun, &nextRoomIndex) == false)
 	{
 		/* there is no exit in that direction, so let the user know and take no other action */
-		printf("You cannot move %s.\n", command->noun);
+		
+		/* if its in room 50 which has option south then do the fire noise*/
+		if (gameState->currentRoomIndex == 50) {
+			printf("You just survived a massive snake man out of snakes, you dont want to go %s.\n", command->noun);
+		}
+		else {
+			printf("You cannot move %s.\n", command->noun);
+		}
 		return;
 	}
 

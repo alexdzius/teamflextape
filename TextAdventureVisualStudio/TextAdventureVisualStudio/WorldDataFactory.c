@@ -147,7 +147,7 @@ Room* Room5_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("this is the stairs before the main room");
+	room = Room_Create("this is the stairs before the main room, south is downstairs and east is exit");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	Room_AddRoomExit(room, "east", 51); /****************************************** this will be the exit to room************/
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
@@ -174,8 +174,7 @@ Room* Room5a_Build()
 	/* return the new room */
 	return room;
 }
-/* TODO ADVANCED: Build room 3 */
-/* TODO ADVANCED: Build room 4 */
+
 
 
 /* ------------------------------------------------------- */
