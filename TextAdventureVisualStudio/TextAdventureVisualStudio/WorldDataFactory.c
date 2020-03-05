@@ -166,11 +166,71 @@ Room* Room5a_Build()
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
 	room = Room_Create("The final boss has arrived");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
-
+	Room_AddRoomExit(room, "north", 52); /*outlook top*/
+	Room_AddRoomExit(room, "south", 53); /* outlook bottom */
+	Room_AddRoomExit(room, "east", 54); /* approach the shiba */
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	/* return the new room */
+	return room;
+}
+Room* Room5b_Build()
+{
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
 
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("A wonderful outlook, with a sunny day in Japan. south back to center \n");
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	Room_AddRoomExit(room, "south", 51);
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	/* return the new room */
+	return room;
+}
+Room* Room5c_Build()
+{
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("A wonderful outlook, with a sunny day in Japan. north back to center \n");
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	Room_AddRoomExit(room, "north", 51);
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	/* return the new room */
+	return room;
+}
+Room* Room5d_Build()
+{
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("The shiba has assesed his dominance. You must contain the shiba \n");
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	Room_AddRoomExit(room, "panda", 55);
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	/* return the new room */
+	return room;
+}
+Room* Room5e_Build()
+{
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("You left the castle, now you are enjoying the sun on a flying panda\n");
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
 	/* return the new room */
 	return room;
 }
@@ -199,8 +259,13 @@ WorldData* CreateInitialWorldData()
 	WorldData_SetRoom(worldData, 20, Room2_Build());
 	WorldData_SetRoom(worldData, 30, Room3_Build());
 	WorldData_SetRoom(worldData, 40, Room4_Build());
+	/* last floor levels*/
 	WorldData_SetRoom(worldData, 50, Room5_Build());
-	WorldData_SetRoom(worldData, 51, Room51_Build());
+	WorldData_SetRoom(worldData, 51, Room5a_Build());
+	WorldData_SetRoom(worldData, 52, Room5b_Build());
+	WorldData_SetRoom(worldData, 53, Room5c_Build());
+	WorldData_SetRoom(worldData, 54, Room5d_Build());
+	WorldData_SetRoom(worldData, 55, Room5e_Build());
 	/* TODO ADVANCED: add additional advanced rooms */
 
 	/* return the new object */

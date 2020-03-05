@@ -61,11 +61,6 @@ void Panda_Use(CommandContext context, GameState* gameState, WorldData* worldDat
 		return;
 	}
 
-	/* IF USE PANDA IS DONE - TELL HIM HE FREIGHTEN*/
-	if (gameState->currentRoomIndex == 50) {
-		printf("The panda is calmed down, but he still appears to be worried about going through.\n");
-		return;
-	}
 	/********************************************************************************** CHECK IF THIS WORKS AND/OR IS NEEDED *****************/
 	/* check if the cage has already been broken and scored */
 	if (GameFlags_IsInList(gameState->gameFlags, "cageBrokenScored"))
