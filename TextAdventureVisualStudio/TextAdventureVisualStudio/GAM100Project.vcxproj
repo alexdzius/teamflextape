@@ -101,7 +101,7 @@
     <ClInclude Include="Source\GameState.h" />
     <ClInclude Include="Source\GameStateFactory.h" />
     <ClInclude Include="Source\GoCommandHandler.h" />
-    <ClInclude Include="Source\GoldPieceFunctions.h" />
+    <ClInclude Include="Source\BallFunctions.h" />
     <ClInclude Include="Source\HelpCommandHandler.h" />
     <ClInclude Include="Source\InputProvider.h" />
     <ClInclude Include="Source\InventoryCommandHandler.h" />
@@ -133,7 +133,7 @@
     <ClCompile Include="Source\GameState.c" />
     <ClCompile Include="Source\GameStateFactory.c" />
     <ClCompile Include="Source\GoCommandHandler.c" />
-    <ClCompile Include="Source\GoldPieceFunctions.c" />
+    <ClCompile Include="Source\BallFunctions.c" />
     <ClCompile Include="Source\HelpCommandHandler.c" />
     <ClCompile Include="Source\InputProvider.c" />
     <ClCompile Include="Source\InventoryCommandHandler.c" />

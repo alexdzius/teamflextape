@@ -18,7 +18,7 @@ This could be used to create default states as well as loaded state.
 #include "BrickFunctions.h" /* Brick_Build */
 #include "PandaFunctions.h" /* Panda_Build */
 #include "BambooFunctions.h" /* Bamboo_Build */
-#include "GoldPieceFunctions.h" /* GoldPiece_Build */
+#include "BallFunctions.h" /* Ball_Build */
 #include "ExitDoorFunctions.h" /* ExitDoor_Build */
 
 

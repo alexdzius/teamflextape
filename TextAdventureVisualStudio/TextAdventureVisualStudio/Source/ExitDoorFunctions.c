@@ -20,21 +20,21 @@ typedef struct WorldData WorldData;
 /* Helper: The action performed when the exit door is used. */
 void ExitDoor_Use(CommandContext context, GameState* gameState, WorldData* worldData)
 {
-	Item* goldPiece; /* the gold piece in the user's inventory */
-	Item* egg; /* the egg in the user's inventory */
+	Item* Ball; /* the gold piece in the user's inventory */
+	Item* bamboo; /* the egg in the user's inventory */
 
 	/* avoid W4 warnings on unused parameters - this function conforms to a function typedef */
 	UNREFERENCED_PARAMETER(context);
 	UNREFERENCED_PARAMETER(worldData);
 
 	/* find the gold piece in the user's inventory */
-	goldPiece = ItemList_FindItem(gameState->inventory, "gold piece");
+	Ball = ItemList_FindItem(gameState->inventory, "ball");
 
 	/* find the egg in the user's inventory */
-	egg = ItemList_FindItem(gameState->inventory, "egg");
+	bamboo = ItemList_FindItem(gameState->inventory, "bamboo");
 
 	/* check if both items are in the user's inventory */
-	if ((egg == NULL) || (goldPiece == NULL))
+	if ((bamboo == NULL) || (Ball == NULL))
 	{
 		/* both items were not found - tell the user about the problem and take no further action */
 		printf("You must keep searching for more treasures before you can exit!\n");
@@ -50,5 +50,5 @@ void ExitDoor_Use(CommandContext context, GameState* gameState, WorldData* world
 Item* ExitDoor_Build()
 {
 	/* Create a "exit door" item, using the functions defined in this file */
-	return Item_Create("exit door", "The exit door has a large sign that reads: \"YOU MUST POSSESS ALL TREASURES BEFORE YOU CAN EXIT.\".\n", false, ExitDoor_Use, NULL, NULL);
+	return Item_Create("exit door", "The exit door is the exit door so you must exit through the exit door.\n", false, ExitDoor_Use, NULL, NULL);
 }

@@ -1,5 +1,5 @@
 /******************************************************************************
-filename    GoldPieceFunctions.h
+filename    BallFunctions.h
 author      Matthew Picioccio
 DP email    mattpic@digipen.edu
 course      GAM100 ** Do not use this code in your team project
@@ -14,4 +14,4 @@ typedef struct Item Item;
 
 
 /* Build a "gold piece" object */
-Item* GoldPiece_Build();
+Item* Ball_Build();

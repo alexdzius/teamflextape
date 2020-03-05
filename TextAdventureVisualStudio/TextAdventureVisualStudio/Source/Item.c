@@ -16,7 +16,7 @@ This file defines the Item interface, which is used to manage items in the game.
 #define MAX_ITEM_NAME_LENGTH 16 
 
 /* the maximum length of an item's description */
-#define MAX_ITEM_DESCRIPTION_LENGTH 256
+#define MAX_ITEM_DESCRIPTION_LENGTH 512
 
 
 /* An item in the game */
