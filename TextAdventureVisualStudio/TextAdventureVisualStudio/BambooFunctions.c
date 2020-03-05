@@ -58,49 +58,52 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 	if (gameState->currentRoomIndex != 0)
 	{
 		/* we are not in the right room - inform the user of the problem and take no action */
-		printf("The Panda doesn't know what to do.\n");
+		printf("bamboo is a long stick, you dont have it.\n");
 		return;
 	}
 	/********************************************************************************** CHECK IF THIS WORKS AND/OR IS NEEDED *****************/
 	/* check if the cage has already been broken and scored */
-	if (GameFlags_IsInList(gameState->gameFlags, "cageBrokenScored"))
+	if (gameState->currentRoomIndex == 55)
 	{
-		/* the player already used the brick - inform the user of the problem and take no action */
-		printf("You already used the brick here.\n");
-		return;
-	}
-	else
-	{
-		/* get the current room */
-		room = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
-
-		/* get the list of items in the current room */
-		roomItemsPtr = Room_GetItemList(room);
-		if (roomItemsPtr == NULL)
+		if (GameFlags_IsInList(gameState->gameFlags, "bambooUsed"))
 		{
-			return; /* take no action, as something is wrong - we should always have an item list */
+			/* the player already used the brick - inform the user of the problem and take no action */
+			printf("The bamboo had been used.\n");
+			return;
 		}
+		else
+		{
+			/* get the current room */
+			room = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
 
-		/* Find the brick in the player's inventory - it should be there, since we are in the Inventory context */
-		bamboo = ItemList_FindItem(gameState->inventory, "bamboo");
+			/* get the list of items in the current room */
+			roomItemsPtr = Room_GetItemList(room);
+			if (roomItemsPtr == NULL)
+			{
+				return; /* take no action, as something is wrong - we should always have an item list */
+			}
 
-		/* Remove the brick from the user's inventory - they won't need it again */
-		gameState->inventory = ItemList_Remove(gameState->inventory, bamboo);
+			/* Find the brick in the player's inventory - it should be there, since we are in the Inventory context */
+			bamboo = ItemList_FindItem(gameState->inventory, "bamboo");
 
-		/* Tell the user what they did */
-		printf("bamboo has been done something. He cant rn.\n");
+			/* Remove the brick from the user's inventory - they won't need it again */
+			gameState->inventory = ItemList_Remove(gameState->inventory, bamboo);
 
-		/* Add to the player's score */
-		GameState_ChangeScore(gameState, 10);
+			/* Tell the user what they did */
+			printf("You have pleased the shiba. He now mutates into thicc shiba. He craves for more, but you dont have more. Panda will defend you\n");
 
-		/* Update the room description to reflect the change in the room */
-		Room_SetDescription(room, "This is room 0.  You are in a display room.  There is a broken cage here.\n");
+			/* Add to the player's score */
+			GameState_ChangeScore(gameState, 10);
 
-		/* Add an egg to the current room, since the cage has been bashed open */
-		*roomItemsPtr = ItemList_Add(*roomItemsPtr, Egg_Build());
+			/* Update the room description to reflect the change in the room */
+			Room_SetDescription(room, "The shiba is asserting dominance, the panda is defending you. Do what you must to safe your friend.\n");
 
-		/* the gold piece has not been scored, so mark the flag */
-		gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "cageBrokenScored");
+			/* Add an egg to the current room, since the cage has been bashed open */
+			*roomItemsPtr = ItemList_Add(*roomItemsPtr, Egg_Build());
+
+			/* the gold piece has not been scored, so mark the flag */
+			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "bambooUsed");
+		}
 	}
 }
 
@@ -109,5 +112,5 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 Item* Bamboo_Build()
 {
 	/* Create a "brick" item, using the functions defined in this file */
-	return Item_Create("bamboo", "bamboo your loyal ally", true, Bamboo_Use, Bamboo_Take, NULL);
+	return Item_Create("bamboo", "bamboo your loyal allys food", true, Bamboo_Use, Bamboo_Take, NULL);
 }

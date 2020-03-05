@@ -213,7 +213,7 @@ Room* Room5d_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("The shiba has assesed his dominance. You must contain the shiba \n");
+	room = Room_Create("The shiba has assesed his dominance. You must contain the shiba completely \n");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	Room_AddRoomExit(room, "panda", 55);
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
@@ -230,6 +230,7 @@ Room* Room5e_Build()
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
 	room = Room_Create("You left the castle, now you are enjoying the sun on a flying panda\n");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	Room_AddRoomExit(room, "", 56);
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
 	/* return the new room */
 	return room;

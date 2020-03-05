@@ -42,7 +42,7 @@ void ExitDoor_Use(CommandContext context, GameState* gameState, WorldData* world
 	}
 
 	/* the user has won the game! end the game, and let them know what happened. */
-	GameState_EndGame(gameState, "Congratulations!  You leave with all of the treasures, and you win the game!\n");
+	
 }
 
 

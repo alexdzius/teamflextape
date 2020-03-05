@@ -62,45 +62,47 @@ void Panda_Use(CommandContext context, GameState* gameState, WorldData* worldDat
 	}
 
 	/********************************************************************************** CHECK IF THIS WORKS AND/OR IS NEEDED *****************/
-	/* check if the cage has already been broken and scored */
-	if (GameFlags_IsInList(gameState->gameFlags, "cageBrokenScored"))
-	{
-		/* the player already used the brick - inform the user of the problem and take no action */
-		printf("You already used the brick here.\n");
-		return;
-	}
-	else
-	{
-		/* get the current room */
-		room = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
-
-		/* get the list of items in the current room */
-		roomItemsPtr = Room_GetItemList(room);
-		if (roomItemsPtr == NULL)
+	if (gameState->currentRoomIndex == 55) {
+		/* check if the cage has already been broken and scored */
+		if (GameFlags_IsInList(gameState->gameFlags, "pandaAttack"))
 		{
-			return; /* take no action, as something is wrong - we should always have an item list */
+			/* the player already used the brick - inform the user of the problem and take no action */
+			printf("The Panda is already attacking the Shiba, do what you must!.\n");
+			return;
 		}
+		else
+		{
+			/* get the current room */
+			room = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
 
-		/* Find the brick in the player's inventory - it should be there, since we are in the Inventory context */
-		panda = ItemList_FindItem(gameState->inventory, "panda");
+			/* get the list of items in the current room */
+			roomItemsPtr = Room_GetItemList(room);
+			if (roomItemsPtr == NULL)
+			{
+				return; /* take no action, as something is wrong - we should always have an item list */
+			}
 
-		/* Remove the brick from the user's inventory - they won't need it again */
-		gameState->inventory = ItemList_Remove(gameState->inventory, panda);
+			/* Find the brick in the player's inventory - it should be there, since we are in the Inventory context */
+			panda = ItemList_FindItem(gameState->inventory, "panda");
 
-		/* Tell the user what they did */
-		printf("Panda will now be doing something. He cant rn.\n");
+			/* Remove the brick from the user's inventory - they won't need it again */
+			gameState->inventory = ItemList_Remove(gameState->inventory, panda);
 
-		/* Add to the player's score */
-		GameState_ChangeScore(gameState, 10);
+			/* Tell the user what they did */
+			printf("Panda will defend the Shiba from you, he hopes youll do good.\n");
 
-		/* Update the room description to reflect the change in the room */
-		Room_SetDescription(room, "This is room 0.  You are in a display room.  There is a broken cage here.\n");
+			/* Add to the player's score */
+			GameState_ChangeScore(gameState, 10);
 
-		/* Add an egg to the current room, since the cage has been bashed open */
-		*roomItemsPtr = ItemList_Add(*roomItemsPtr, Egg_Build());
+			/* Update the room description to reflect the change in the room */
+			Room_SetDescription(room, "The shiba is asserting dominance, the panda is defending you. Do what you must to safe your friend.\n");
 
-		/* the gold piece has not been scored, so mark the flag */
-		gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "cageBrokenScored");
+			/* Add an egg to the current room, since the cage has been bashed open */
+			*roomItemsPtr = ItemList_Add(*roomItemsPtr, Egg_Build());
+
+			/* the gold piece has not been scored, so mark the flag */
+			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "pandaAttack");
+		}
 	}
 }
 
