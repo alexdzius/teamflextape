@@ -56,11 +56,15 @@ Room* Room0_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
 	"This is room 0. It is a display room with a cage in the middle. You can see a jeweled egg inside the cage.  There is a crack in the west wall, but you can't fit through it from this side.\n" */
-	
+	room = Room_Create("You Awaken. As you groggily open your eyes, you realize that the surrounding room is a prison cell with a locked bamboo door.The lack of natural light combined with the water leaking from the rooms stone crevices show that you’re in some kind of dungeon.");
 	/* TODO REQUIRED: Add an Exit "north" to Room 1 */
+	Room_AddRoomExit(room, "North", 10);
 	/* TODO BASIC: Add room exit shortcut for "n" */
 
 	/* TODO REQUIRED: add an exit door to the list of items in the room, ExitDoor_Build() */
+	ItemList_AddItem(Room_GetItemList(room), Panda_Build());
+	ItemList_AddItem(Room_GetItemList(room), Ball_Build());
+	ItemList_AddItem(Room_GetItemList(room), Brick_Build());
 
 	/* TODO ADVANCED: (not required) update the description and add a room exit to the "east" */
 
