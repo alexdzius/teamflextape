@@ -240,6 +240,108 @@ Room* Room5e_Build()
 	/* return the new room */
 	return room;
 }
+Room* Room5f_Build()
+{
+	/****************** THIS IS THE LAST EXIT ROOM ********************/
+
+
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("You left the castle, now you are enjoying the sun on a flying panda. The EXIT is the end of the game.\n");
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+	/* return the new room */
+	return room;
+}
+Room* Room5g_Build()
+{
+	/****************** THIS IS THE LAST EXIT ROOM ********************/
+
+
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("You left the castle, now you are enjoying the sun on a flying panda. The EXIT is the end of the game.\n");
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+	/* return the new room */
+	return room;
+}
+Room* Room5h_Build()
+{
+	/****************** THIS IS THE LAST EXIT ROOM ********************/
+
+
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("You left the castle, now you are enjoying the sun on a flying panda. The EXIT is the end of the game.\n");
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+	/* return the new room */
+	return room;
+}
+Room* Room5i_Build()
+{
+	/****************** THIS IS THE LAST EXIT ROOM ********************/
+
+
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("You left the castle, now you are enjoying the sun on a flying panda. The EXIT is the end of the game.\n");
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+	/* return the new room */
+	return room;
+}
+Room* Room5j_Build()
+{
+	/****************** THIS IS THE LAST EXIT ROOM ********************/
+
+
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("You left the castle, now you are enjoying the sun on a flying panda. The EXIT is the end of the game.\n");
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+	/* return the new room */
+	return room;
+}
+Room* Room5k_Build()
+{
+	/****************** THIS IS THE LAST EXIT ROOM ********************/
+
+
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("The Shiba and Panda are still fighting. Give them the items.\n");
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+	/* return the new room */
+	return room;
+}
 
 
 
@@ -253,7 +355,7 @@ WorldData* CreateInitialWorldData()
 
 	/* TODO REQUIRED: update room count to match the number of rooms you have created and added to the world
 	   if this number doesn't match then your game will either crash or you will end up stuck in a broken room with no exits */
-	int roomCount = 1; /* FIX THIS ONCE DONE */
+	int roomCount = 62; /* FIX THIS ONCE DONE */
 
 	/* create the new WorldData object with 3 rooms */
 	worldData = WorldData_Create("Welcome to my GAM100 Game!\n\n", roomCount);
@@ -266,12 +368,23 @@ WorldData* CreateInitialWorldData()
 	WorldData_SetRoom(worldData, 30, Room3_Build());
 	WorldData_SetRoom(worldData, 40, Room4_Build());
 	/* last floor levels*/
+	/* pre fight*/
 	WorldData_SetRoom(worldData, 50, Room5_Build());
 	WorldData_SetRoom(worldData, 51, Room5a_Build());
 	WorldData_SetRoom(worldData, 52, Room5b_Build());
 	WorldData_SetRoom(worldData, 53, Room5c_Build());
+	/* shiba choice */
 	WorldData_SetRoom(worldData, 54, Room5d_Build());
+	/* win level */
 	WorldData_SetRoom(worldData, 55, Room5e_Build());
+	/* search for ball and bamboo */
+	WorldData_SetRoom(worldData, 56, Room5f_Build());
+	WorldData_SetRoom(worldData, 57, Room5g_Build());
+	WorldData_SetRoom(worldData, 58, Room5h_Build());
+	WorldData_SetRoom(worldData, 59, Room5i_Build());
+	WorldData_SetRoom(worldData, 60, Room5j_Build());
+	/* please the shiba then win*/
+	WorldData_SetRoom(worldData, 61, Room5k_Build());
 	/* TODO ADVANCED: add additional advanced rooms */
 
 	/* return the new object */

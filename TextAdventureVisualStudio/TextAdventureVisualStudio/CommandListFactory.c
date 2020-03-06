@@ -50,6 +50,7 @@ CommandList* CreateCommandList()
 	/*  REQUIRED: create the "use" command
 	 BASIC: add a short alias "u" */
 	CommandList_Add(cmdListPtr, "use", HandleUseCommand, true);
+	CommandList_Add(cmdListPtr, "cut", HandleUseCommand, true);
 	CommandList_Add(cmdListPtr, "u", HandleUseCommand, true);
 	/*  REQUIRED: create the "look" command
 	 BASIC: add a short alias "l" */
