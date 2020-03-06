@@ -31,7 +31,7 @@ void Ball_Take(CommandContext context, GameState* gameState, WorldData* worldDat
 	}
 
 	/* check if the gold piece has already been scored */
-	if (!GameFlags_IsInList(gameState->gameFlags, "BallScored"))
+	if (!GameFlags_IsInList(gameState->gameFlags, "BallScored") && gameState->currentRoomIndex == 60)
 	{
 		/* tell the user that something cool happens when they pick up the gold piece */
 		printf("You have found the ball, its slippery but it will please the dog.\n");

@@ -22,13 +22,39 @@ This file defines the functions to create a specific item, the "bamboo".
 /* Helper: The action performed when the bamboo is taken. */
 void Bamboo_Take(CommandContext context, GameState* gameState, WorldData* worldData)
 {
+	Room* room; /* The current room */
+	ItemList** roomItemsPtr; /* The list of items in the current room */
+	Item* bamboo; /* The bamboo in the player's inventory */
 	/* avoid W4 warnings on unused parameters - this function conforms to a function typedef */
 	UNREFERENCED_PARAMETER(context);
 	UNREFERENCED_PARAMETER(gameState);
 	UNREFERENCED_PARAMETER(worldData);
 
-	/* bamboo */
-	printf("you can now feed bamboo\n");
+	if (gameState->currentRoomIndex == 58) {
+
+		if (GameFlags_IsInList(gameState->gameFlags, "bambooTaken")) {
+			printf("You already have enough bamboo, look for the ball!");
+			return;
+		}
+		else {
+			room = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
+			roomItemsPtr = Room_GetItemList(room);
+			if (roomItemsPtr == NULL)
+			{
+				return; /* take no action, as something is wrong - we should always have an item list */
+			}
+			/* Find the bamboo in the player's inventory - it should be there, since we are in the Inventory context */
+			bamboo = ItemList_FindItem(gameState->inventory, "bamboo");
+
+			/* Remove the brick from the user's inventory - they won't need it again */
+			gameState->inventory = ItemList_Remove(gameState->inventory, bamboo);
+
+			/* Tell the user what they did */
+			printf("You found the needed bamboo! Now don't forget the ball!\n");
+
+		}
+
+	}
 }
 
 
@@ -105,6 +131,7 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "bambooUsed");
 		}
 	}
+	
 }
 
 
