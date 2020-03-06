@@ -37,10 +37,12 @@ void ExitDoor_Use(CommandContext context, GameState* gameState, WorldData* world
 	if ((bamboo == NULL) || (Ball == NULL))
 	{
 		/* both items were not found - tell the user about the problem and take no further action */
-		printf("You must keep searching for more treasures before you can exit!\n");
+		printf("You still need both the ball and bamboo to crave the shibas sustenance!\n");
 		return;
 	}
-
+	else {
+		GameState_EndGame(gameState, "Congratulations!  You leave with all of the treasures, and you win the game!\n");
+	}
 	/* the user has won the game! end the game, and let them know what happened. */
 	
 }
@@ -50,5 +52,5 @@ void ExitDoor_Use(CommandContext context, GameState* gameState, WorldData* world
 Item* ExitDoor_Build()
 {
 	/* Create a "exit door" item, using the functions defined in this file */
-	return Item_Create("exit door", "The exit door is the exit door so you must exit through the exit door.\n", false, ExitDoor_Use, NULL, NULL);
+	return Item_Create("exit", "The exit door is the exit door so you must exit through the exit door.\n", false, ExitDoor_Use, NULL, NULL);
 }
