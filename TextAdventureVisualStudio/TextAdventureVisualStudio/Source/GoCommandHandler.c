@@ -41,11 +41,8 @@ void HandleGoCommand(CommandData *command, GameState *gameState, WorldData *worl
 		if (gameState->currentRoomIndex == 50) {
 			printf("You just survived a massive snake man out of snakes, you dont want to go %s.\n", command->noun);
 		}
-		/* if u leave the second to last "room"*/
-			else if (gameState->currentRoomIndex == 55) {
-			if () {
-				printf("The Panda gets wings, you mount the panda");
-			}
+		else if (gameState->currentRoomIndex == 54) {
+			printf("You enter on the panda, he gets wings, and you fly away with the %s.\n", command->noun);
 		}
 		else {
 			printf("You cannot move %s.\n", command->noun);
