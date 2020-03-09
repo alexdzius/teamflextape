@@ -191,12 +191,10 @@ Room* Room5_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("this is the stairs before the main room, south is downstairs and east is exit");
+	room = Room_Create("this is the stairs before the main room, south is downstairs and east is exit - the panda is scared but he will survive");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	Room_AddRoomExit(room, "east", 51); /****************************************** this will be the exit to room************/
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
-	ItemList_AddItem(Room_GetItemList(room), Panda_Build());
-	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
 	/* return the new room */
 	return room;
@@ -208,14 +206,12 @@ Room* Room5a_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("The final boss has arrived");
+	room = Room_Create("The final boss has arrived - panda scared but you never know");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	Room_AddRoomExit(room, "north", 52); /*outlook top*/
 	Room_AddRoomExit(room, "south", 53); /* outlook bottom */
 	Room_AddRoomExit(room, "east", 54); /* approach the shiba */
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
-	ItemList_AddItem(Room_GetItemList(room), Panda_Build());
-	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
 	/* return the new room */
 	return room;
@@ -229,7 +225,6 @@ Room* Room5b_Build()
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
 	room = Room_Create("A wonderful outlook, with a sunny day in Japan. south back to center \n");
 	ItemList_AddItem(Room_GetItemList(room), Panda_Build());
-	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	Room_AddRoomExit(room, "south", 51);
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
@@ -248,7 +243,6 @@ Room* Room5c_Build()
 	Room_AddRoomExit(room, "north", 51);
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
 	ItemList_AddItem(Room_GetItemList(room), Panda_Build());
-	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 	/* return the new room */
 	return room;
 }
@@ -259,7 +253,7 @@ Room* Room5d_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("The shiba has assesed his dominance. You must contain the shiba completely \n");
+	room = Room_Create("The shiba is assessing his dominance, he craves for bamboo, do you please him by TAKING bamboo and USING it on the shiba, or do you CALL your panda and SATISFY the PANDA by giving him the bamboo \n");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	Room_AddRoomExit(room, "panda", 55);
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */

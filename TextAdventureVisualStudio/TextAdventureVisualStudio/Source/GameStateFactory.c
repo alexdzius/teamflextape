@@ -25,7 +25,7 @@ GameState* CreateInitialGameState()
 	initialGameState->score = 0;
 
 	/* the user starts in room 0 */
-	initialGameState->currentRoomIndex = 0;
+	initialGameState->currentRoomIndex = 50;
 
 	/* return the new object */
 	return initialGameState;

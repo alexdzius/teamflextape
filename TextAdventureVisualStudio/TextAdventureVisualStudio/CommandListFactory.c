@@ -47,11 +47,13 @@ CommandList* CreateCommandList()
 	 BASIC: add a short alias "t" */
 	CommandList_Add(cmdListPtr, "take", HandleTakeCommand, true);
 	CommandList_Add(cmdListPtr, "t", HandleTakeCommand, true);
+	CommandList_Add(cmdListPtr, "call", HandleTakeCommand, true);
 	/*  REQUIRED: create the "use" command
 	 BASIC: add a short alias "u" */
 	CommandList_Add(cmdListPtr, "use", HandleUseCommand, true);
 	CommandList_Add(cmdListPtr, "cut", HandleUseCommand, true);
 	CommandList_Add(cmdListPtr, "u", HandleUseCommand, true);
+	CommandList_Add(cmdListPtr, "satisfy", HandleUseCommand, true);
 	/*  REQUIRED: create the "look" command
 	 BASIC: add a short alias "l" */
 	CommandList_Add(cmdListPtr, "look", HandleLookCommand, true);
