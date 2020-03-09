@@ -127,6 +127,7 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 
 			/* the gold piece has not been scored, so mark the flag */
 			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "bambooUsed");
+			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "shibaSatisfy");
 		}
 	}
 	
