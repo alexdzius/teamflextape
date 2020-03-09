@@ -22,13 +22,39 @@ This file defines the functions to create a specific item, the "bamboo".
 /* Helper: The action performed when the bamboo is taken. */
 void Bamboo_Take(CommandContext context, GameState* gameState, WorldData* worldData)
 {
+	Room* room; /* The current room */
+	ItemList** roomItemsPtr; /* The list of items in the current room */
+	Item* bamboo; /* The bamboo in the player's inventory */
 	/* avoid W4 warnings on unused parameters - this function conforms to a function typedef */
 	UNREFERENCED_PARAMETER(context);
 	UNREFERENCED_PARAMETER(gameState);
 	UNREFERENCED_PARAMETER(worldData);
 
-	/* bamboo */
-	printf("you can now feed bamboo\n");
+	if (gameState->currentRoomIndex == 58) {
+
+		if (GameFlags_IsInList(gameState->gameFlags, "bambooTaken")) {
+			printf("You already have enough bamboo, look for the ball!");
+			return;
+		}
+		else {
+			room = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
+			roomItemsPtr = Room_GetItemList(room);
+			if (roomItemsPtr == NULL)
+			{
+				return; /* take no action, as something is wrong - we should always have an item list */
+			}
+			/* Find the bamboo in the player's inventory - it should be there, since we are in the Inventory context */
+			bamboo = ItemList_FindItem(gameState->inventory, "bamboo");
+
+			/* Remove the brick from the user's inventory - they won't need it again */
+			gameState->inventory = ItemList_Remove(gameState->inventory, bamboo);
+
+			/* Tell the user what they did */
+			printf("You found the needed bamboo! Now don't forget the ball!\n");
+
+		}
+
+	}
 }
 
 
@@ -63,12 +89,12 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 	}
 	/********************************************************************************** CHECK IF THIS WORKS AND/OR IS NEEDED *****************/
 	/* check if the cage has already been broken and scored */
-	if (gameState->currentRoomIndex == 55)
+	if (gameState->currentRoomIndex == 54)
 	{
 		if (GameFlags_IsInList(gameState->gameFlags, "bambooUsed"))
 		{
 			/* the player already used the brick - inform the user of the problem and take no action */
-			printf("The bamboo had been used.\n");
+			printf("You had done the right choice already. Use the Panda!\n");
 			return;
 		}
 		else
@@ -90,21 +116,20 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 			gameState->inventory = ItemList_Remove(gameState->inventory, bamboo);
 
 			/* Tell the user what they did */
-			printf("You have pleased the shiba. He now mutates into thicc shiba. He craves for more, but you dont have more. Panda will defend you\n");
+			printf("You have pleased the shiba. He now mutates into thicc shiba. He thanks your action. Panda will defend you\n");
 
 			/* Add to the player's score */
 			GameState_ChangeScore(gameState, 10);
 
 			/* Update the room description to reflect the change in the room */
-			Room_SetDescription(room, "The shiba is asserting dominance, the panda is defending you. Do what you must to safe your friend.\n");
+			Room_SetDescription(room, "The shiba is asserting dominance, but he loves you. GO with your friend for prosperity.\n");
 
-			/* Add an egg to the current room, since the cage has been bashed open */
-			*roomItemsPtr = ItemList_Add(*roomItemsPtr, Egg_Build());
 
 			/* the gold piece has not been scored, so mark the flag */
 			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "bambooUsed");
 		}
 	}
+	
 }
 
 
