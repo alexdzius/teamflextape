@@ -29,7 +29,7 @@ void Panda_Take(CommandContext context, GameState* gameState, WorldData* worldDa
 
 	/* PANDA TO BE YOUR FRIEND AFTER TAKE PANDA */
 	if (gameState->currentRoomIndex == 52 || gameState->currentRoomIndex == 53) {
-		printf("The panda appreciates the wonderful view, he seems more relaxed now\n");
+		printf("Busta Killa hears your call and comes excitedly. Do you SHOW him, or do you go BACK.\n");
 
 	}
 	else if (gameState->currentRoomIndex == 54) {
@@ -69,7 +69,7 @@ void Panda_Use(CommandContext context, GameState* gameState, WorldData* worldDat
 		if (GameFlags_IsInList(gameState->gameFlags, "pandaAttack"))
 		{
 			/* the player already used the brick - inform the user of the problem and take no action */
-			printf("The Panda is already defending you from the Shiba, do what you must!.\n");
+			printf("Busta Killa already is tug-waring tHICC DOGE -- DONT DISAPPOINT HIM AND GO S E A R C H TO LOOK FOR THE ITEMS.\n");
 			return;
 		}
 		else
@@ -91,18 +91,21 @@ void Panda_Use(CommandContext context, GameState* gameState, WorldData* worldDat
 			gameState->inventory = ItemList_Remove(gameState->inventory, panda);
 
 			/* Tell the user what they did */
-			printf("The Panda is satisfied, but the Shiba is angry. He mutates into thicc shiba. He craves for bamboo and will fight for it. Panda will defend the Shiba from you, he hopes youll find more bamboo to please the shiba.\n");
+			printf("Busta killa roars out of pleasure. Though Doge is not fine with this. He begins to e x p a n d. DOGE became THICC SHIBA and SUDDENLY THROWS HIMSELF ON BUSTA KILLA. 'NOOOOO!' you scream, but you know you need to GO SEARCH for something to distract or feed DOGE!\n");
 
 			/* Add to the player's score */
 			GameState_ChangeScore(gameState, 10);
 
 			/* Update the room description to reflect the change in the room */
-			Room_SetDescription(room, "The shiba is asserting dominance, the panda is defending you. Do what you must to safe your friend.\n");
+			Room_SetDescription(room, "DOGE is engaging in fierce combat with Busta Killa. Don't forget to GO SEARCH for a distraction!\n");
 
 
 			/* the gold piece has not been scored, so mark the flag */
 			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "pandaAttack");
 		}
+	}
+	else if (gameState->currentRoomIndex == 52 || gameState->currentRoomIndex == 53) {
+		printf("Busta killa begins to vibe to the music. He really vibin doe! You can always go BACK.\n");
 	}
 	else {
 		printf("The Panda doesn't know what to do.\n");
