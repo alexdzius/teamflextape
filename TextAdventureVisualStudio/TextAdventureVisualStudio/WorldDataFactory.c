@@ -232,7 +232,7 @@ Room* Room4a_Build()
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-
+	ItemList_AddItem(Room_GetItemList(room), Snake_Build());
 	/* return the new room */
 	return room;
 }
@@ -276,7 +276,7 @@ Room* Room4c_Build()
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-
+	ItemList_AddItem(Room_GetItemList(room), Snake_Build());
 	/* return the new room */
 	return room;
 }
@@ -318,7 +318,7 @@ Room* Room4e_Build()
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-
+	ItemList_AddItem(Room_GetItemList(room), Snake_Build());
 	/* return the new room */
 	return room;
 }
@@ -375,7 +375,7 @@ Room* Room4h_Build()
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-
+	ItemList_AddItem(Room_GetItemList(room), Snake_Build());
 	/* return the new room */
 	return room;
 }
@@ -394,7 +394,7 @@ Room* Room4i_Build()
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-
+	ItemList_AddItem(Room_GetItemList(room), Snake_Build());
 	/* return the new room */
 	return room;
 }
