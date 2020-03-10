@@ -15,7 +15,7 @@ the user from one room to another using defined exits.
 #include "GameState.h" /* struct GameState */
 #include "WorldData.h" /* WorldData_GetRoom */
 #include "Room.h" /* Room_GetNextRoomIndex, Room_Print, INVALID_DIRECTION_ID */
-
+#include "GameFlags.h"
 
 /* Handles the "go" command, which moves the user to another room */
 void HandleGoCommand(CommandData *command, GameState *gameState, WorldData *worldData)
@@ -51,14 +51,18 @@ void HandleGoCommand(CommandData *command, GameState *gameState, WorldData *worl
 	}
 
 	/* update the game state to move to the new room */
-	gameState->currentRoomIndex = nextRoomIndex;
+	if (gameState->currentRoomIndex == 54 && nextRoomIndex == 55 && GameFlags_IsInList(gameState->gameFlags, "pandaAttack")) {
+		printf("You cannot leave the room with the panda, he fights the shiba for you!\n");
+	}
+	else {
+		gameState->currentRoomIndex = nextRoomIndex;
+		/* output the successful action */
+		printf("You move %s.\n\n", command->noun);
 
-	/* output the successful action */
-	printf("You move %s.\n\n", command->noun);
+		/* get the new room */
+		currentRoom = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
 
-	/* get the new room */
-	currentRoom = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
-
-	/* print the description of the new room */
-	Room_Print(currentRoom);
+		/* print the description of the new room */
+		Room_Print(currentRoom);
+	}
 }

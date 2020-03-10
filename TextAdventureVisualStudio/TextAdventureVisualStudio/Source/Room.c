@@ -15,7 +15,7 @@ This file defines the Room interface, which is used to manage rooms in the game.
 
 
 /* The maximum length of a room description string */
-#define MAX_ROOM_DESCRIPTION_LENGTH 512
+#define MAX_ROOM_DESCRIPTION_LENGTH 2048
 
 
 /* A room in the game */

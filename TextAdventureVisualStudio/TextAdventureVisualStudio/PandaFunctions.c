@@ -99,8 +99,6 @@ void Panda_Use(CommandContext context, GameState* gameState, WorldData* worldDat
 			/* Update the room description to reflect the change in the room */
 			Room_SetDescription(room, "The shiba is asserting dominance, the panda is defending you. Do what you must to safe your friend.\n");
 
-			/* Add an egg to the current room, since the cage has been bashed open */
-			*roomItemsPtr = ItemList_Add(*roomItemsPtr, Egg_Build());
 
 			/* the gold piece has not been scored, so mark the flag */
 			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "pandaAttack");
