@@ -99,13 +99,13 @@ Room* Room2_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("Ascending to the next floor, you find a door with a symbol of an ox on it. \nYou open the door, only to find yourself in a room that looks like the interior of the famous fast-food establishment, Burger Shogun. From behind the serving counter, a figure in golden, red and blue samurai armor leaps to face you. (Was he just waiting there the whole time?) \n\"Halt!\" he screams. \"I am, like, the defender of this floor, BURGER SHOGUN EMPLOYEE! You shall, like, die or whatever! But before you do, like, you gotta try our new softserve! \nOur new machine is made of neverbreakium, which is, like, completely invulnerable to all things except pandas, and like, I see you got one there, but like, please don't break it.\" The only obvious exit is a door to the EAST labeled \"SOFT SERVE\".");
+	room = Room_Create("Ascending to the next floor, you find a door with a symbol of an ox on it. \nYou open the door, only to find yourself in a room that looks like the interior of the famous fast-food establishment, Burger Shogun. From behind the serving counter, a figure in golden, red and blue samurai armor leaps to face you. \n(Was he just waiting there the whole time?) \"Halt!\" he screams. \"I am, like, the defender of this floor, BURGER SHOGUN EMPLOYEE! You shall, like, die or whatever! But before you do, like, you gotta try our new softserve! \nOur new machine is made of neverbreakium, which is, like, completely invulnerable to all things except pandas, and like, I see you got one there, but like, please don't break it.\" The only obvious exit is a door to the EAST labeled \"SOFT SERVE\".");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	Room_AddRoomExit(room, "east", 21);
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-
+	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 	/* return the new room */
 	return room;
 }
@@ -118,7 +118,25 @@ Room* Room2a_Build()
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
 	room = Room_Create("Past the door is a huge, totally empty room, save for the SOFT SERVE MACHINE in the back. The only exit is the door to the WEST, which leads back into the main room.");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
-	Room_AddRoomExit(room, "west", 21);
+	Room_AddRoomExit(room, "west", 22);
+	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
+
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+
+	/* return the new room */
+	return room;
+}
+Room* Room2b_Build()
+{
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("You find yourself back in the Burger Shogun room. A strange door leading NORTH has materialized somehow.");
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	Room_AddRoomExit(room, "north", 30);
+	Room_AddRoomExit(room, "east", 21);
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
@@ -232,7 +250,7 @@ Room* Room4a_Build()
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-
+	ItemList_AddItem(Room_GetItemList(room), Snake_Build());
 	/* return the new room */
 	return room;
 }
@@ -276,7 +294,7 @@ Room* Room4c_Build()
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-
+	ItemList_AddItem(Room_GetItemList(room), Snake_Build());
 	/* return the new room */
 	return room;
 }
@@ -318,7 +336,7 @@ Room* Room4e_Build()
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-
+	ItemList_AddItem(Room_GetItemList(room), Snake_Build());
 	/* return the new room */
 	return room;
 }
@@ -375,7 +393,7 @@ Room* Room4h_Build()
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-
+	ItemList_AddItem(Room_GetItemList(room), Snake_Build());
 	/* return the new room */
 	return room;
 }
@@ -394,7 +412,7 @@ Room* Room4i_Build()
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-
+	ItemList_AddItem(Room_GetItemList(room), Snake_Build());
 	/* return the new room */
 	return room;
 }
@@ -678,6 +696,8 @@ WorldData* CreateInitialWorldData()
 	/* TODO REQUIRED: add rooms 1 and 2 to the world data */
 	WorldData_SetRoom(worldData, 10, Room1_Build());
 	WorldData_SetRoom(worldData, 20, Room2_Build());
+	WorldData_SetRoom(worldData, 21, Room2a_Build());
+	WorldData_SetRoom(worldData, 22, Room2b_Build());
 	WorldData_SetRoom(worldData, 30, Room3_Build());
 	/* last floor levels*/
 	WorldData_SetRoom(worldData, 40, Room4_Build());
