@@ -12,8 +12,7 @@ This file defines the Item interface, which is used to manage items in the game.
 #include "Item.h" /* Function declarations */
 
 
-/* the maximum length of an item's name */
-#define MAX_ITEM_NAME_LENGTH 16 
+
 
 /* the maximum length of an item's description */
 #define MAX_ITEM_DESCRIPTION_LENGTH 512
