@@ -27,7 +27,7 @@ void Manual_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 {
 	Room* room; /* The current room */
 	ItemList** roomItemsPtr; /* The list of items in the current room */
-	Item* manual; /* The brick in the player's inventory */""
+	Item* manual; /* The brick in the player's inventory */
 
 	/* safety check on the parameters */
 	if ((gameState == NULL) || (worldData == NULL))
@@ -62,7 +62,7 @@ void Manual_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 		}
 
 		/* Find the brick in the player's inventory - it should be there, since we are in the Inventory context */
-		brick = ItemList_FindItem(gameState->inventory, "manual");
+		manual = ItemList_FindItem(gameState->inventory, "manual");
 
 
 		/* Tell the user what they did */
@@ -71,7 +71,7 @@ void Manual_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 
 
 /* Build a "brick" object */
-Item* Brick_Build()
+Item* Manual_Build()
 {
 	/* Create a "brick" item, using the functions defined in this file */
 	return Item_Create("manual", "A bomb defusal manual", true, Manual_Use, NULL, NULL);

@@ -18,6 +18,7 @@ This file defines the functions to create a specific item, the "bamboo".
 #include "Item.h" /* Item_Create */
 #include "EggFunctions.h" /* Egg_Build */
 #include <stdio.h>
+#include <ctype.h>
 
 
 /* Helper: The action performed when the bamboo is taken. */
@@ -134,11 +135,18 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 		fgets(useOnItem, MAX_ITEM_NAME_LENGTH, stdin);
 		for (i = 0; useOnItem[i] != '\0'; i++)
 		{
-			useOnItem[i] = toLower(useOnItem);
+			useOnItem[i] = (char)tolower(useOnItem[i]);
 		}
-		if (strcmp(useOnItem, "soft serve machine\n") == 0)
+		if (strcmp(useOnItem, "soft serve machine\n") == 0 && !GameFlags_IsInList(gameState->gameFlags, "machineBroke"))
 		{
-			printf("");
+			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "machineBroke");
+			printf("You throw the bamboo at the machine. The moment it makes contact, Busta Killa roars, charging the machine down. \nIn his hunger, he smashes the machine. You hear a screech from outside as Burger Shogun Employee rushes in. \"I, like, told you not to!\" \nAs he stands close to the machine, panicking, it explodes in his face, killing him instantly. You check his body, and find two things.\n");
+			printf("Firstly, you find a box labeled \"IMPROBABLE WHOPPER! NEW BABMOO SANDWHICH!\" \nUpon opening the box, you find a piece of BAMBOO between two pieces of bread. You also notice a KEY. Both are ripe for the TAKING.");
+
+		}
+		else if (GameFlags_IsInList(gameState->gameFlags, "machineBroke"))
+		{
+			printf("Throwing bamboo at a broken machine seems rather foolish.");
 		}
 		else
 		{

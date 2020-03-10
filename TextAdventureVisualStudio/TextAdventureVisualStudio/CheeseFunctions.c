@@ -62,7 +62,7 @@ void Cheese_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 	}
 
 	/* Find the brick in the player's inventory - it should be there, since we are in the Inventory context */
-	brick = ItemList_FindItem(gameState->inventory, "cheese");
+	cheese = ItemList_FindItem(gameState->inventory, "cheese");
 
 
 	/* Tell the user what they did */
