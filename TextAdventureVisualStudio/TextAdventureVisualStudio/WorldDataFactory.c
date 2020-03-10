@@ -116,13 +116,14 @@ Room* Room3_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("As the door behind you seals shut, you enter a room with a tall podium. On top of the podium appears to be a RAT.\nThe RAT does not seem to be very menacing at first.\n\nThen you hear a ticking sound.\n\nUpon closer inspection, you realize there is BOMB strapped to the RAT.Judging by the timer on the BOMB, you have 15 minutes before the bomb goes off.\nTo the WEST is a small KITCHEN, not to be confused with the KITCHEN from the previous floor. That's a different KITCHEN.\nTo the EAST is some other unknown ROOM.\n");
+	room = Room_Create("As the door behind you seals shut, you enter a room with a tall podium. On top of the podium appears to be a RAT.\nThe RAT does not seem to be very menacing at first.\n\nThen you hear a ticking sound.\n\nUpon closer inspection, you realize there is BOMB strapped to the RAT. Judging by the timer on the BOMB, you have 15 minutes before the bomb goes off.\nTo the WEST is a small KITCHEN, not to be confused with the KITCHEN from the previous floor. That's a different KITCHEN.\nTo the EAST is some other unknown ROOM.\n");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	Room_AddRoomExit(room, "north", 1);
 	Room_AddRoomExit(room, "west", 31);
-	Room_AddRoomExit(room, "east", 1);
+	Room_AddRoomExit(room, "east", 32);
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
-
+	ItemList_AddItem(Room_GetItemList(room), Panda_Build());
+	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
 
 	/* return the new room */
@@ -142,8 +143,11 @@ Room* Room3a_Build()
 	Room_AddRoomExit(room, "east", 30);  /* 1 = the room index this exit connects to */
 
 	/* Items
+
 	   add items to the room */
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	ItemList_AddItem(Room_GetItemList(room), Panda_Build());
+	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 	/* Return the new room */
 	return room;
 }
@@ -154,15 +158,18 @@ Room* Room3b_Build()
 
 	/* Create the room
 	   include an initial room description */
-	room = Room_Create("As you enter the kitchen, the scent of bread and all-purpose cleaning solution fills the air.\nYou see a COUNTER, some CABINETS, and a FRIDGE.\n");
+	room = Room_Create("As you approach the unknown room, the room glows brighter ever so slowly. You notice a WORKBENCH, a WALL OF TOOLS, and some DRAWERS.\nThis room must have been used to build a bomb.\n");
 
 	/* Exits
 	   add one or more exits to allow navigation between rooms */
-	Room_AddRoomExit(room, "east", 30);  /* 1 = the room index this exit connects to */
+	Room_AddRoomExit(room, "west", 30);  /* 1 = the room index this exit connects to */
 
 	/* Items
 	   add items to the room */
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
+	ItemList_AddItem(Room_GetItemList(room), Panda_Build());
+	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
+
 	/* Return the new room */
 	return room;
 }
