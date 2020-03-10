@@ -28,7 +28,17 @@ void Panda_Take(CommandContext context, GameState* gameState, WorldData* worldDa
 	UNREFERENCED_PARAMETER(worldData);
 
 	/* PANDA TO BE YOUR FRIEND AFTER TAKE PANDA */
-	printf("The Panda is your loyal ally now\n");
+	if (gameState->currentRoomIndex == 52 || gameState->currentRoomIndex == 53) {
+		printf("The panda appreciates the wonderful view, he seems more relaxed now\n");
+
+	}
+	else if (gameState->currentRoomIndex == 54) {
+		printf("The Panda is at your side, do you SATISFY him or USE bamboo for the Shiba?\n");
+	}
+	else {
+		printf("The Panda is your loyal ally now\n");
+	}
+	
 }
 
 
@@ -53,21 +63,13 @@ void Panda_Use(CommandContext context, GameState* gameState, WorldData* worldDat
 		return;
 	}
 
-	/* CAN PANDA BE USED HERE -- CONDITIONAL BASED ON ROOMS */
-	if (gameState->currentRoomIndex != 0)
-	{
-		/* we are not in the right room - inform the user of the problem and take no action */
-		printf("The Panda doesn't know what to do.\n");
-		return;
-	}
-
 	/********************************************************************************** CHECK IF THIS WORKS AND/OR IS NEEDED *****************/
-	if (gameState->currentRoomIndex == 55) {
+	if (gameState->currentRoomIndex == 54) {
 		/* check if the cage has already been broken and scored */
 		if (GameFlags_IsInList(gameState->gameFlags, "pandaAttack"))
 		{
 			/* the player already used the brick - inform the user of the problem and take no action */
-			printf("The Panda is already attacking the Shiba, do what you must!.\n");
+			printf("The Panda is already defending you from the Shiba, do what you must!.\n");
 			return;
 		}
 		else
@@ -89,7 +91,7 @@ void Panda_Use(CommandContext context, GameState* gameState, WorldData* worldDat
 			gameState->inventory = ItemList_Remove(gameState->inventory, panda);
 
 			/* Tell the user what they did */
-			printf("Panda will defend the Shiba from you, he hopes youll do good.\n");
+			printf("The Panda is satisfied, but the Shiba is angry. He mutates into thicc shiba. He craves for bamboo and will fight for it. Panda will defend the Shiba from you, he hopes youll find more bamboo to please the shiba.\n");
 
 			/* Add to the player's score */
 			GameState_ChangeScore(gameState, 10);
@@ -97,12 +99,14 @@ void Panda_Use(CommandContext context, GameState* gameState, WorldData* worldDat
 			/* Update the room description to reflect the change in the room */
 			Room_SetDescription(room, "The shiba is asserting dominance, the panda is defending you. Do what you must to safe your friend.\n");
 
-			/* Add an egg to the current room, since the cage has been bashed open */
-			*roomItemsPtr = ItemList_Add(*roomItemsPtr, Egg_Build());
 
 			/* the gold piece has not been scored, so mark the flag */
 			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "pandaAttack");
 		}
+	}
+	else {
+		printf("The Panda doesn't know what to do.\n");
+		return;
 	}
 }
 

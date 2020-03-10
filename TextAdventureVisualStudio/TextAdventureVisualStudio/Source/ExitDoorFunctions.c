@@ -13,7 +13,7 @@ This file defines the functions to create a specific item, the "exit door".
 #include "GameState.h" /* struct GameState, GameState_EndGame */
 #include "ItemList.h" /* ItemList_FindItem */
 #include "Item.h" /* Item_Create */
-
+#include "GameFlags.h" /* GameFlags_IsInList */
 typedef struct WorldData WorldData;
 
 
@@ -34,7 +34,7 @@ void ExitDoor_Use(CommandContext context, GameState* gameState, WorldData* world
 	bamboo = ItemList_FindItem(gameState->inventory, "bamboo");
 
 	/* check if both items are in the user's inventory */
-	if ((bamboo == NULL) || (Ball == NULL))
+	if (((bamboo == NULL) || (Ball == NULL)) || GameFlags_IsInList(gameState->gameFlags, "shibaSatisfy"))
 	{
 		/* both items were not found - tell the user about the problem and take no further action */
 		printf("You still need both the ball and bamboo to crave the shibas sustenance!\n");

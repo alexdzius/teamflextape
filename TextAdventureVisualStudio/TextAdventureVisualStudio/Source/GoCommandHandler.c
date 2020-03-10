@@ -15,7 +15,7 @@ the user from one room to another using defined exits.
 #include "GameState.h" /* struct GameState */
 #include "WorldData.h" /* WorldData_GetRoom */
 #include "Room.h" /* Room_GetNextRoomIndex, Room_Print, INVALID_DIRECTION_ID */
-
+#include "GameFlags.h"
 
 /* Handles the "go" command, which moves the user to another room */
 void HandleGoCommand(CommandData *command, GameState *gameState, WorldData *worldData)
@@ -41,11 +41,8 @@ void HandleGoCommand(CommandData *command, GameState *gameState, WorldData *worl
 		if (gameState->currentRoomIndex == 50) {
 			printf("You just survived a massive snake man out of snakes, you dont want to go %s.\n", command->noun);
 		}
-		/* if u leave the second to last "room"*/
-			else if (gameState->currentRoomIndex == 55) {
-			if () {
-				printf("The Panda gets wings, you mount the panda");
-			}
+		else if (gameState->currentRoomIndex == 54) {
+			printf("You enter on the panda, he gets wings, and you fly away with the %s.\n", command->noun);
 		}
 		else {
 			printf("You cannot move %s.\n", command->noun);
@@ -54,14 +51,18 @@ void HandleGoCommand(CommandData *command, GameState *gameState, WorldData *worl
 	}
 
 	/* update the game state to move to the new room */
-	gameState->currentRoomIndex = nextRoomIndex;
+	if (gameState->currentRoomIndex == 54 && nextRoomIndex == 55 && GameFlags_IsInList(gameState->gameFlags, "pandaAttack")) {
+		printf("You cannot leave the room with the panda, he fights the shiba for you!\n");
+	}
+	else {
+		gameState->currentRoomIndex = nextRoomIndex;
+		/* output the successful action */
+		printf("You move %s.\n\n", command->noun);
 
-	/* output the successful action */
-	printf("You move %s.\n\n", command->noun);
+		/* get the new room */
+		currentRoom = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
 
-	/* get the new room */
-	currentRoom = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
-
-	/* print the description of the new room */
-	Room_Print(currentRoom);
+		/* print the description of the new room */
+		Room_Print(currentRoom);
+	}
 }

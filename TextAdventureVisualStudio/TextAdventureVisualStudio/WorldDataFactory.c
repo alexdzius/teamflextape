@@ -99,8 +99,26 @@ Room* Room2_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-
+	room = Room_Create("Ascending to the next floor, you find a door with a symbol of an ox on it. \nYou open the door, only to find yourself in a room that looks like the interior of the famous fast-food establishment, Burger Shogun. From behind the serving counter, a figure in golden, red and blue samurai armor leaps to face you. (Was he just waiting there the whole time?) \n\"Halt!\" he screams. \"I am, like, the defender of this floor, BURGER SHOGUN EMPLOYEE! You shall, like, die or whatever! But before you do, like, you gotta try our new softserve! \nOur new machine is made of neverbreakium, which is, like, completely invulnerable to all things except pandas, and like, I see you got one there, but like, please don't break it.\" The only obvious exit is a door to the EAST labeled \"SOFT SERVE\".");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	Room_AddRoomExit(room, "east", 21);
+	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
+
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+
+	/* return the new room */
+	return room;
+}
+Room* Room2a_Build()
+{
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("Past the door is a huge, totally empty room, save for the SOFT SERVE MACHINE in the back. The only exit is the door to the WEST, which leads back into the main room.");
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	Room_AddRoomExit(room, "west", 21);
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
@@ -181,8 +199,198 @@ Room* Room4_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("this is the entrance hall room thing");
 
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	/* the map room thing*/
+	Room_AddRoomExit(room, "east", 41);
+	/* suspicious wizard's room*/
+	Room_AddRoomExit(room, "west", 42);
+	/* snake knight main chamber*/
+	Room_AddRoomExit(room, "north", 43);
+	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
+
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+
+	/* return the new room */
+	return room;
+}
+Room* Room4a_Build()
+{
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("this is the map room");
+
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	/* weaponry room*/
+	Room_AddRoomExit(room, "south", 44);
+	/* main hallway */
+	Room_AddRoomExit(room, "west", 40);
+	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
+
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+
+	/* return the new room */
+	return room;
+}
+Room* Room4b_Build()
+{
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("suspicious wizards chamber");
+
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	/* main entarnce*/
+	Room_AddRoomExit(room, "east", 40);
+	/* bathroom */
+	Room_AddRoomExit(room, "south", 45);
+	/* janitors closet */
+	Room_AddRoomExit(room, "north", 46);
+	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
+
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+
+	/* return the new room */
+	return room;
+}
+Room* Room4c_Build()
+{
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("snake knight main chamber");
+
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	/* main entrance */
+	Room_AddRoomExit(room, "south", 40);
+	/* top hallway */
+	Room_AddRoomExit(room, "north", 47);
+	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
+
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+
+	/* return the new room */
+	return room;
+}
+Room* Room4d_Build()
+{
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("top hallway");
+
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	/* armory*/
+	Room_AddRoomExit(room, "east", 48);
+	/* blacksmith */
+	Room_AddRoomExit(room, "west", 49);
+	/* snake knight main chamber*/
+	Room_AddRoomExit(room, "south", 43);
+	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
+
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+
+	/* return the new room */
+	return room;
+}
+Room* Room4e_Build()
+{
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("weaponry");
+
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	/* map room */
+	Room_AddRoomExit(room, "north", 41);
+	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
+
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+
+	/* return the new room */
+	return room;
+}
+Room* Room4f_Build()
+{
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("bathroom");
+
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	/* suspicious wizarsd room */
+	Room_AddRoomExit(room, "north", 42);
+	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
+
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+
+	/* return the new room */
+	return room;
+}
+Room* Room4g_Build()
+{
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("janitors closet");
+
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	/* suspicious wizarsd room */
+	Room_AddRoomExit(room, "south", 42);
+	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
+
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+
+	/* return the new room */
+	return room;
+}
+Room* Room4h_Build()
+{
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("armory");
+
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	/* top hallway */
+	Room_AddRoomExit(room, "west", 47);
+	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
+
+	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+
+	/* return the new room */
+	return room;
+}
+Room* Room4i_Build()
+{
+	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	Room* room = NULL;
+
+	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
+	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	room = Room_Create("blacksmith");
+
+	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
+	/* top hallway */
+	Room_AddRoomExit(room, "east", 47);
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
@@ -198,12 +406,10 @@ Room* Room5_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("this is the stairs before the main room, south is downstairs and east is exit");
+	room = Room_Create("this is the stairs before the main room, south is downstairs and east is exit - the panda is scared but he will survive\n");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	Room_AddRoomExit(room, "east", 51); /****************************************** this will be the exit to room************/
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
-	ItemList_AddItem(Room_GetItemList(room), Panda_Build());
-	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
 	/* return the new room */
 	return room;
@@ -215,14 +421,12 @@ Room* Room5a_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("The final boss has arrived");
+	room = Room_Create("The final boss has arrived - panda scared but you never know\n");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	Room_AddRoomExit(room, "north", 52); /*outlook top*/
 	Room_AddRoomExit(room, "south", 53); /* outlook bottom */
 	Room_AddRoomExit(room, "east", 54); /* approach the shiba */
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
-	ItemList_AddItem(Room_GetItemList(room), Panda_Build());
-	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
 	/* return the new room */
 	return room;
@@ -236,7 +440,6 @@ Room* Room5b_Build()
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
 	room = Room_Create("A wonderful outlook, with a sunny day in Japan. south back to center \n");
 	ItemList_AddItem(Room_GetItemList(room), Panda_Build());
-	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	Room_AddRoomExit(room, "south", 51);
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
@@ -255,7 +458,6 @@ Room* Room5c_Build()
 	Room_AddRoomExit(room, "north", 51);
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
 	ItemList_AddItem(Room_GetItemList(room), Panda_Build());
-	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 	/* return the new room */
 	return room;
 }
@@ -266,9 +468,10 @@ Room* Room5d_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("The shiba has assesed his dominance. You must contain the shiba completely \n");
+	room = Room_Create("The shiba is assessing his dominance, he craves for bamboo, do you please him by TAKING bamboo and USING it on the shiba, or do you CALL your panda and SATISFY the PANDA by giving him the bamboo \n");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	Room_AddRoomExit(room, "panda", 55);
+	Room_AddRoomExit(room, "out", 56);
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
 	ItemList_AddItem(Room_GetItemList(room), Panda_Build());
 	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
@@ -341,7 +544,6 @@ Room* Room5h_Build()
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
 	room = Room_Create("There appears to be some green stuff here, maybe something of use? If not, you can always go WEST, EAST or NORTH.\n");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
-	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
 	Room_AddRoomExit(room, "west", 56);
 	Room_AddRoomExit(room, "north", 57);
@@ -381,7 +583,6 @@ Room* Room5j_Build()
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
 	room = Room_Create("You left the castle, now you are enjoying the sun on a flying panda. The EXIT is the end of the game.\n");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
-	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 	ItemList_AddItem(Room_GetItemList(room), Ball_Build());
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
 	/* return the new room */
@@ -399,8 +600,6 @@ Room* Room5k_Build()
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
 	room = Room_Create("The Shiba and Panda are still fighting. Give them the items.\n");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
-	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
-	ItemList_AddItem(Room_GetItemList(room), Ball_Build());
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
 	/* return the new room */
 	return room;
@@ -429,8 +628,17 @@ WorldData* CreateInitialWorldData()
 	WorldData_SetRoom(worldData, 10, Room1_Build());
 	WorldData_SetRoom(worldData, 20, Room2_Build());
 	WorldData_SetRoom(worldData, 30, Room3_Build());
-	WorldData_SetRoom(worldData, 40, Room4_Build());
 	/* last floor levels*/
+	WorldData_SetRoom(worldData, 40, Room4_Build());
+	WorldData_SetRoom(worldData, 41, Room4a_Build());
+	WorldData_SetRoom(worldData, 42, Room4b_Build());
+	WorldData_SetRoom(worldData, 43, Room4c_Build());
+	WorldData_SetRoom(worldData, 44, Room4e_Build());
+	WorldData_SetRoom(worldData, 45, Room4f_Build());
+	WorldData_SetRoom(worldData, 46, Room4g_Build());
+	WorldData_SetRoom(worldData, 47, Room4d_Build());
+	WorldData_SetRoom(worldData, 48, Room4h_Build());
+	WorldData_SetRoom(worldData, 49, Room4i_Build());
 	/* pre fight*/
 	WorldData_SetRoom(worldData, 50, Room5_Build());
 	WorldData_SetRoom(worldData, 51, Room5a_Build());

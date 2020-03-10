@@ -49,7 +49,7 @@ void HandleLookCommand(CommandData* command, GameState* gameState, WorldData* wo
 
 	/* search for the item in the user's inventory, which takes precedence over the room */
 	item = ItemList_FindItem(gameState->inventory, command->noun);
-	if (item != NULL && gameState->currentRoomIndex == 50 && item == "panda")
+	if (item != NULL && gameState->currentRoomIndex == 50)
 	{
 		printf("The Panda is clearly scared, but he seems fine.\n"); /* clarify the target for the user */
 		return;
