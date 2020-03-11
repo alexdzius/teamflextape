@@ -20,6 +20,7 @@ This could be used to create default states as well as loaded state.
 #include "BambooFunctions.h" /* Bamboo_Build */
 #include "BallFunctions.h" /* Ball_Build */
 #include "ExitDoorFunctions.h" /* ExitDoor_Build */
+#include "SnakeFunctions.h" /* Snake */
 
 
 
@@ -217,7 +218,7 @@ Room* Room4_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("this is the entrance hall room thing");
+	room = Room_Create("entrance hall\n");
 
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	/* the map room thing*/
@@ -240,7 +241,7 @@ Room* Room4a_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("this is the map room");
+	room = Room_Create("map room\n");
 
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	/* weaponry room*/
@@ -261,7 +262,7 @@ Room* Room4b_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("suspicious wizards chamber");
+	room = Room_Create("suspicious wizards chamber\n");
 
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	/* main entarnce*/
@@ -284,7 +285,7 @@ Room* Room4c_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("snake knight main chamber");
+	room = Room_Create("snake knight main chamber\n");
 
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	/* main entrance */
@@ -305,7 +306,7 @@ Room* Room4d_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("top hallway");
+	room = Room_Create("top hallway\n");
 
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	/* armory*/
@@ -314,6 +315,8 @@ Room* Room4d_Build()
 	Room_AddRoomExit(room, "west", 49);
 	/* snake knight main chamber*/
 	Room_AddRoomExit(room, "south", 43);
+	/* staircase up */
+	Room_AddRoomExit(room, "north", 50);
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
@@ -328,7 +331,7 @@ Room* Room4e_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("weaponry");
+	room = Room_Create("weaponry\n");
 
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	/* map room */
@@ -347,7 +350,7 @@ Room* Room4f_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("bathroom");
+	room = Room_Create("bathroom\n");
 
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	/* suspicious wizarsd room */
@@ -366,7 +369,7 @@ Room* Room4g_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("janitors closet");
+	room = Room_Create("janitors closet\n");
 
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	/* suspicious wizarsd room */
@@ -385,7 +388,7 @@ Room* Room4h_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("armory");
+	room = Room_Create("armory\n");
 
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	/* top hallway */
@@ -404,7 +407,7 @@ Room* Room4i_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("blacksmith");
+	room = Room_Create("blacksmith\n");
 
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	/* top hallway */

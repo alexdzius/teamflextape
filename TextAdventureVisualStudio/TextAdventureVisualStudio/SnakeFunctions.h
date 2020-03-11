@@ -1,7 +1,6 @@
 /******************************************************************************
 filename    SnakeFunctions.h
 author      Marvin Chan
-
 course      GAM100 ** Do not use this code in your team project
 
 Brief Description:
