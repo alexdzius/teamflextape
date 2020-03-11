@@ -87,6 +87,42 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 	
 	/********************************************************************************** CHECK IF THIS WORKS AND/OR IS NEEDED *****************/
 	/* check if the cage has already been broken and scored */
+	if (gameState->currentRoomIndex == 61) {
+		if (GameFlags_IsInList(gameState->gameFlags, "objectsUsed")) {
+			printf("You had done the right choice already. Use the Panda!\n");
+			return;
+		}
+		else {
+			/* get the current room */
+			room = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
+
+			/* get the list of items in the current room */
+			roomItemsPtr = Room_GetItemList(room);
+			if (roomItemsPtr == NULL)
+			{
+				return; /* take no action, as something is wrong - we should always have an item list */
+			}
+
+			/* Find the brick in the player's inventory - it should be there, since we are in the Inventory context */
+			bamboo = ItemList_FindItem(gameState->inventory, "bamboo");
+
+			/* Remove the brick from the user's inventory - they won't need it again */
+			gameState->inventory = ItemList_Remove(gameState->inventory, bamboo);
+
+			/* Tell the user what they did */
+			printf("You have pleased the shiba. He now mutates into thicc shiba. He thanks your action. Panda comes back to you\n");
+
+			/* Add to the player's score */
+			GameState_ChangeScore(gameState, 10);
+
+			/* Update the room description to reflect the change in the room */
+			Room_SetDescription(room, "The shiba is asserting dominance, but he loves you. GO with your friend for prosperity.\n");
+
+
+			/* the gold piece has not been scored, so mark the flag */
+			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "objectsUsed");
+		}
+	}
 	if (gameState->currentRoomIndex == 54)
 	{
 		if (GameFlags_IsInList(gameState->gameFlags, "bambooUsed"))
@@ -114,7 +150,7 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 			gameState->inventory = ItemList_Remove(gameState->inventory, bamboo);
 
 			/* Tell the user what they did */
-			printf("You have pleased the shiba. He now mutates into thicc shiba. He thanks your action. Panda will defend you\n");
+			printf("Doge appears to have craved his sustanencenceence. Oh nO he be THICCEN! HE is ROUND. But pretty sure, he seems happy. Busta killa is slighlty angry at his lack of bamboo, but he is humored by the round doge. The gates behind the round doge seem to have opened, and busta killa has grown wings? It's truly a miracle of a day. You are now free! Just MOUNT the PANDA and fly to heaven!\n");
 
 			/* Add to the player's score */
 			GameState_ChangeScore(gameState, 10);
@@ -130,7 +166,7 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 	}
 	else if (gameState->currentRoomIndex == 21)
 	{
-
+		room = WorldData_GetRoom(worldData, 20);
 		printf("On what?\n");
 		fgets(useOnItem, MAX_ITEM_NAME_LENGTH, stdin);
 		for (i = 0; useOnItem[i] != '\0'; i++)
@@ -140,8 +176,10 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 		if (strcmp(useOnItem, "soft serve machine\n") == 0 && !GameFlags_IsInList(gameState->gameFlags, "machineBroke"))
 		{
 			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "machineBroke");
+			Room_SetDescription(room, "You return to the Buger Shogun room. For some reason, a strange door to the NORTH has materialized.");
+			ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 			printf("You throw the bamboo at the machine. The moment it makes contact, Busta Killa roars, charging the machine down. \nIn his hunger, he smashes the machine. You hear a screech from outside as Burger Shogun Employee rushes in. \"I, like, told you not to!\" \nAs he stands close to the machine, panicking, it explodes in his face, killing him instantly. You check his body, and find two things.\n");
-			printf("Firstly, you find a box labeled \"IMPROBABLE WHOPPER! NEW BABMOO SANDWHICH!\" \nUpon opening the box, you find a piece of BAMBOO between two pieces of bread. You also notice a KEY. Both are ripe for the TAKING.");
+			printf("Firstly, you find a box labeled \"IMPROBABLE WHOPPER! NEW BABMOO SANDWHICH!\" Upon opening the box, you find a piece of BAMBOO between two pieces of bread. \nIt seems ripe for the TAKING.");
 
 		}
 		else if (GameFlags_IsInList(gameState->gameFlags, "machineBroke"))

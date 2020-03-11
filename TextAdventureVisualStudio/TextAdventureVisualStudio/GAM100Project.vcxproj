@@ -85,6 +85,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BambooFunctions.h" />
+    <ClInclude Include="CheeseFunctions.h" />
     <ClInclude Include="ManualFunctions.h" />
     <ClInclude Include="PandaFunctions.h" />
     <ClInclude Include="SnakeFunctions.h" />

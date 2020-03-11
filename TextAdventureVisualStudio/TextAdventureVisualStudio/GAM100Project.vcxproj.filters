@@ -195,10 +195,11 @@
     <ClInclude Include="ManualFunctions.h">
       <Filter>World Data\Item Functions</Filter>
     </ClInclude>
-    <ClInclude Include="SnakeFunctions.h">
+    <ClInclude Include="CheeseFunctions.h">
       <Filter>World Data\Item Functions</Filter>
-    </ClInclude>
-  </ItemGroup>
+    </ClInclude>    <ClInclude Include="SnakeFunctions.h">
+      <Filter>World Data\Item Functions</Filter>
+    </ClInclude>  </ItemGroup>
   <ItemGroup>
     <Filter Include="Command Handling">
       <UniqueIdentifier>{3c6a6e39-d98e-49bf-a20b-d61bce50ea2d}</UniqueIdentifier>

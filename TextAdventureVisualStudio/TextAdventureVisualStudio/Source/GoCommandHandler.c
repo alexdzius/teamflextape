@@ -39,10 +39,10 @@ void HandleGoCommand(CommandData *command, GameState *gameState, WorldData *worl
 		
 		/* if its in room 50 which has option south then do the fire noise*/
 		if (gameState->currentRoomIndex == 50) {
-			printf("You just survived a massive snake man out of snakes, you dont want to go %s.\n", command->noun);
+			printf("Bruh you can see the exit just go there ok thanks, dont go %s again\n", command->noun);
 		}
 		else if (gameState->currentRoomIndex == 54) {
-			printf("You enter on the panda, he gets wings, and you fly away with the %s.\n", command->noun);
+			printf("Even with Doge pleased, something is happening to busta killa! This is not good, he is exploding! --- Nevermind, he just has wings now. You promptly mount him, and you two fly away into the abyss!\n");
 		}
 		else {
 			printf("You cannot move %s.\n", command->noun);
@@ -51,8 +51,8 @@ void HandleGoCommand(CommandData *command, GameState *gameState, WorldData *worl
 	}
 
 	/* update the game state to move to the new room */
-	if (gameState->currentRoomIndex == 54 && nextRoomIndex == 55 && GameFlags_IsInList(gameState->gameFlags, "pandaAttack")) {
-		printf("You cannot leave the room with the panda, he fights the shiba for you!\n");
+	if ((gameState->currentRoomIndex == 54 && nextRoomIndex == 55 && GameFlags_IsInList(gameState->gameFlags, "pandaAttack")) || (gameState->currentRoomIndex == 61 && nextRoomIndex == 55 && !GameFlags_IsInList(gameState->gameFlags, "objectsUsed") && !GameFlags_IsInList(gameState->gameFlags, "objectsUsed2"))) {
+		printf("You cannot leave the room with the panda, he fights the shiba for you! Make sure you use the items.\n");
 	}
 	else {
 		gameState->currentRoomIndex = nextRoomIndex;

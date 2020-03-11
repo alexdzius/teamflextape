@@ -38,6 +38,7 @@ void Brick_Use(CommandContext context, GameState* gameState, WorldData* worldDat
 	Room* room; /* The current room */
 	ItemList** roomItemsPtr; /* The list of items in the current room */
 	Item* brick; /* The brick in the player's inventory */
+	Room* room0 = WorldData_GetRoom(worldData, 0);
 
 	/* safety check on the parameters */
 	if ((gameState == NULL) || (worldData == NULL))
@@ -58,6 +59,20 @@ void Brick_Use(CommandContext context, GameState* gameState, WorldData* worldDat
 	{
 		/* we are not in the right room - inform the user of the problem and take no action */
 		printf("You cannot use the brick here.\n");
+		return;
+	}
+
+	if (gameState->currentRoomIndex == 0)
+	{
+		/* we are not in the right room - inform the user of the problem and take no action */
+		printf("You muster all of your strength and pathetically throw the rock at your cells lock. From what it seems, your cell is the only one with a working lock,\n for the rock instantly bounced off your lock and shattered the one keeping the PANDA encaged.");
+		printf("Once given freedom, the panda comes over to your cell and eats the door.");
+		gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "doorBroke");
+		if (GameFlags_IsInList, "doorBroke")
+		{
+			Room_AddRoomExit(room0, "north", 10);
+		}
+
 		return;
 	}
 

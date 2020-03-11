@@ -52,6 +52,8 @@ CommandList* CreateCommandList()
 	 BASIC: add a short alias "u" */
 	CommandList_Add(cmdListPtr, "use", HandleUseCommand, true);
 	CommandList_Add(cmdListPtr, "cut", HandleUseCommand, true);
+	CommandList_Add(cmdListPtr, "show", HandleUseCommand, true);
+	CommandList_Add(cmdListPtr, "give", HandleUseCommand, true);
 	CommandList_Add(cmdListPtr, "u", HandleUseCommand, true);
 	CommandList_Add(cmdListPtr, "satisfy", HandleUseCommand, true);
 	/*  REQUIRED: create the "look" command
@@ -65,6 +67,7 @@ CommandList* CreateCommandList()
 	/*  REQUIRED: create the "go" command
 	BASIC: add a short alias "g" */
 	CommandList_Add(cmdListPtr, "go", HandleGoCommand, true);
+	CommandList_Add(cmdListPtr, "mount", HandleGoCommand, true);
 	CommandList_Add(cmdListPtr, "g", HandleGoCommand, true);
 	/* TODO ADVANCED: create aditional commands
 	this should require the creation of additional .c files to implement the command functions */
