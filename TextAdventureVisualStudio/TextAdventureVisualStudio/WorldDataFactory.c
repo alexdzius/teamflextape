@@ -118,7 +118,7 @@ Room* Room2a_Build()
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
 	room = Room_Create("Past the door is a huge, totally empty room, save for the SOFT SERVE MACHINE in the back. The only exit is the door to the WEST, which leads back into the main room.");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
-	Room_AddRoomExit(room, "west", 22);
+	Room_AddRoomExit(room, "west", 20);
 	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
 
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
@@ -126,24 +126,7 @@ Room* Room2a_Build()
 	/* return the new room */
 	return room;
 }
-Room* Room2b_Build()
-{
-	/* TODO: Pre-declare a room pointer which we will use to build the new room */
-	Room* room = NULL;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
-	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("You find yourself back in the Burger Shogun room. A strange door leading NORTH has materialized somehow.");
-	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
-	Room_AddRoomExit(room, "north", 30);
-	Room_AddRoomExit(room, "east", 21);
-	/* TODO BASIC: Add exit shortcuts for "e" and "crack" */
-
-	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-
-	/* return the new room */
-	return room;
-}
 /* TODO REQUIRED: FLOOR 3, SPAM MORE ROOMS WITH 3 PREFIX TO HAVE EXPANDED */
 Room* Room3_Build()
 {
