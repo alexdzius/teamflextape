@@ -32,9 +32,11 @@ void ExitDoor_Use(CommandContext context, GameState* gameState, WorldData* world
 
 	/* find the egg in the user's inventory */
 	bamboo = ItemList_FindItem(gameState->inventory, "bamboo");
-
 	/* check if both items are in the user's inventory */
-	if (((bamboo == NULL) || (Ball == NULL)) || GameFlags_IsInList(gameState->gameFlags, "shibaSatisfy"))
+	if (GameFlags_IsInList(gameState->gameFlags, "objectsUsed") && GameFlags_IsInList(gameState->gameFlags, "objectsUsed2")) {
+		gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "shibaSatisfy");
+	}
+	if (!GameFlags_IsInList(gameState->gameFlags, "shibaSatisfy"))
 	{
 		/* both items were not found - tell the user about the problem and take no further action */
 		printf("You still need both the ball and bamboo to crave the shibas sustenance!\n");

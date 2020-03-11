@@ -17,6 +17,8 @@ This file defines the functions to create a specific item, the "bamboo".
 #include "ItemList.h" /* ItemList_FindItem, ItemList_Remove, ItemList_Add */
 #include "Item.h" /* Item_Create */
 #include "EggFunctions.h" /* Egg_Build */
+#include <stdio.h>
+#include <ctype.h>
 
 
 /* Helper: The action performed when the bamboo is taken. */
@@ -64,6 +66,8 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 	Room* room; /* The current room */
 	ItemList** roomItemsPtr; /* The list of items in the current room */
 	Item* bamboo; /* The bamboo in the player's inventory */
+	char useOnItem[MAX_ITEM_NAME_LENGTH];
+	int i = 0;
 
 	/* safety check on the parameters */
 	if ((gameState == NULL) || (worldData == NULL))
@@ -71,30 +75,60 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 		return; /* take no action if the parameters are invalid */
 	}
 
-	/* check if the user is using the panda out of their inventory */
+	/* check if the user is using the bamboo out of their inventory */
 	if (context != CommandContext_Item_Inventory)
 	{
 		/* the user doesn't have the brick - inform the user of the problem and take no action */
-		printf("you have no more bamboo.\n");
+		printf("You have no more bamboo.\n");
 		/************************************************* DEATH CONDITION? *****************/
 		return;
 	}
 
-	/* CAN BAMBOO BE USED HERE -- CONDITIONAL BASED ON ROOMS */
-	if (gameState->currentRoomIndex != 0)
-	{
-		/* we are not in the right room - inform the user of the problem and take no action */
-		printf("bamboo is a long stick, you dont have it.\n");
-		return;
-	}
+	
 	/********************************************************************************** CHECK IF THIS WORKS AND/OR IS NEEDED *****************/
 	/* check if the cage has already been broken and scored */
+	if (gameState->currentRoomIndex == 61) {
+		if (GameFlags_IsInList(gameState->gameFlags, "objectsUsed")) {
+			printf("You had done the right choice already. Use the Panda!\n");
+			return;
+		}
+		else {
+			/* get the current room */
+			room = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
+
+			/* get the list of items in the current room */
+			roomItemsPtr = Room_GetItemList(room);
+			if (roomItemsPtr == NULL)
+			{
+				return; /* take no action, as something is wrong - we should always have an item list */
+			}
+
+			/* Find the brick in the player's inventory - it should be there, since we are in the Inventory context */
+			bamboo = ItemList_FindItem(gameState->inventory, "bamboo");
+
+			/* Remove the brick from the user's inventory - they won't need it again */
+			gameState->inventory = ItemList_Remove(gameState->inventory, bamboo);
+
+			/* Tell the user what they did */
+			printf("You have pleased the shiba. He now mutates into thicc shiba. He thanks your action. Panda comes back to you\n");
+
+			/* Add to the player's score */
+			GameState_ChangeScore(gameState, 10);
+
+			/* Update the room description to reflect the change in the room */
+			Room_SetDescription(room, "The shiba is asserting dominance, but he loves you. GO with your friend for prosperity.\n");
+
+
+			/* the gold piece has not been scored, so mark the flag */
+			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "objectsUsed");
+		}
+	}
 	if (gameState->currentRoomIndex == 54)
 	{
 		if (GameFlags_IsInList(gameState->gameFlags, "bambooUsed"))
 		{
 			/* the player already used the brick - inform the user of the problem and take no action */
-			printf("You had done the right choice already. Use the Panda!\n");
+			printf("You've done the right choice already. Use the Panda!\n");
 			return;
 		}
 		else
@@ -116,7 +150,7 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 			gameState->inventory = ItemList_Remove(gameState->inventory, bamboo);
 
 			/* Tell the user what they did */
-			printf("You have pleased the shiba. He now mutates into thicc shiba. He thanks your action. Panda will defend you\n");
+			printf("Doge appears to have craved his sustanencenceence. Oh nO he be THICCEN! HE is ROUND. But pretty sure, he seems happy. Busta killa is slighlty angry at his lack of bamboo, but he is humored by the round doge. The gates behind the round doge seem to have opened, and busta killa has grown wings? It's truly a miracle of a day. You are now free! Just MOUNT the PANDA and fly to heaven!\n");
 
 			/* Add to the player's score */
 			GameState_ChangeScore(gameState, 10);
@@ -130,6 +164,35 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "shibaSatisfy");
 		}
 	}
+	else if (gameState->currentRoomIndex == 21)
+	{
+
+		printf("On what?\n");
+		fgets(useOnItem, MAX_ITEM_NAME_LENGTH, stdin);
+		for (i = 0; useOnItem[i] != '\0'; i++)
+		{
+			useOnItem[i] = (char)tolower(useOnItem[i]);
+		}
+		if (strcmp(useOnItem, "soft serve machine\n") == 0 && !GameFlags_IsInList(gameState->gameFlags, "machineBroke"))
+		{
+			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "machineBroke");
+			printf("You throw the bamboo at the machine. The moment it makes contact, Busta Killa roars, charging the machine down. \nIn his hunger, he smashes the machine. You hear a screech from outside as Burger Shogun Employee rushes in. \"I, like, told you not to!\" \nAs he stands close to the machine, panicking, it explodes in his face, killing him instantly. You check his body, and find two things.\n");
+			printf("Firstly, you find a box labeled \"IMPROBABLE WHOPPER! NEW BABMOO SANDWHICH!\" \nUpon opening the box, you find a piece of BAMBOO between two pieces of bread. You also notice a KEY. Both are ripe for the TAKING.");
+
+		}
+		else if (GameFlags_IsInList(gameState->gameFlags, "machineBroke"))
+		{
+			printf("Throwing bamboo at a broken machine seems rather foolish.");
+		}
+		else
+		{
+			printf("You can't use the bamboo on that, you absolute buffoon. You complete fool. You utter nincompoop.\n");
+		}
+	}
+	else
+	{
+		printf("Who would use bamboo here, you absolute fool?\n");
+	}
 	
 }
 
@@ -138,5 +201,5 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 Item* Bamboo_Build()
 {
 	/* Create a "brick" item, using the functions defined in this file */
-	return Item_Create("bamboo", "bamboo your loyal allys food", true, Bamboo_Use, Bamboo_Take, NULL);
+	return Item_Create("bamboo", "bamboo your loyal ally's food", true, Bamboo_Use, Bamboo_Take, NULL);
 }

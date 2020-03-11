@@ -12,6 +12,9 @@ This file declares the Item interface, which is used to manage items in the game
 #include "stdafx.h" /* bool */
 #include "CommandContext.h" /* enum CommandContext */
 
+/* the maximum length of an item's name */
+#define MAX_ITEM_NAME_LENGTH 32 
+
 typedef struct GameState GameState;
 typedef struct WorldData WorldData;
 
