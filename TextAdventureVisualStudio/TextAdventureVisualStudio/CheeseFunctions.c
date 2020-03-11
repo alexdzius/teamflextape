@@ -62,11 +62,15 @@ void Cheese_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 	}
 
 	/* Find the brick in the player's inventory - it should be there, since we are in the Inventory context */
-	brick = ItemList_FindItem(gameState->inventory, "cheese");
+	cheese = ItemList_FindItem(gameState->inventory, "cheese");
+	gameState->inventory = ItemList_Remove(gameState->inventory, cheese);
 
+	gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "cheesePlaced");
 
 	/* Tell the user what they did */
 	printf("You manage to lure the RAT off of the podium with the CHEESE, allowing you a closer look at the BOMB.\n");
+
+	Room_SetDescription(room, "You are in a room with a tall podium. You see a RAT in front of you munching on the CHEESE.\nThere is BOMB strapped to the RAT.\nTo the WEST is a small KITCHEN, not to be confused with the KITCHEN from the previous floor. That's a different KITCHEN.\nTo the EAST is some other unknown ROOM.\n");
 }
 
 

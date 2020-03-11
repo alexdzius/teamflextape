@@ -27,7 +27,7 @@ void Manual_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 {
 	Room* room; /* The current room */
 	ItemList** roomItemsPtr; /* The list of items in the current room */
-	Item* manual; /* The brick in the player's inventory */""
+	Item* manual; /* The brick in the player's inventory */
 
 	/* safety check on the parameters */
 	if ((gameState == NULL) || (worldData == NULL))
@@ -62,11 +62,22 @@ void Manual_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 		}
 
 		/* Find the brick in the player's inventory - it should be there, since we are in the Inventory context */
-		brick = ItemList_FindItem(gameState->inventory, "manual");
 
+		manual = ItemList_FindItem(gameState->inventory, "manual");
 
 		/* Tell the user what they did */
-		printf("The BOMB MANUAL reads as follows:\n'To set the BOMB, simply turn the timer on the BOMB to however long you would like the BOMB to wait for. Then run.\nTo disable the bomb, cut the _____ WIRE.\n");
+		if (!GameFlags_IsInList(gameState->gameFlags, "pinkSolution"))
+		{
+			printf("The BOMB MANUAL reads as follows:\n'To set the BOMB, simply turn the timer on the BOMB to however long you would like the BOMB to wait for. Then run.\nTo disable the bomb, cut the PINK WIRE.'\n");
+		}
+		else if (!GameFlags_IsInList(gameState->gameFlags, "plaidSolution"))
+		{
+			printf("The BOMB MANUAL reads as follows:\n'To set the BOMB, simply turn the timer on the BOMB to however long you would like the BOMB to wait for. Then run.\nTo disable the bomb, cut the PLAID WIRE.'\n");
+		}
+		else if (!GameFlags_IsInList(gameState->gameFlags, "greySolution"))
+		{
+			printf("The BOMB MANUAL reads as follows:\n'To set the BOMB, simply turn the timer on the BOMB to however long you would like the BOMB to wait for. Then run.\nTo disable the bomb, cut the GREY WIRE.'\n");
+		}
 }
 
 

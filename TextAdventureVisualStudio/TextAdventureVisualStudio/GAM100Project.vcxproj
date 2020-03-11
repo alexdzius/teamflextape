@@ -85,6 +85,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BambooFunctions.h" />
+    <ClInclude Include="BombFunctions.h" />
     <ClInclude Include="ManualFunctions.h" />
     <ClInclude Include="PandaFunctions.h" />
     <ClInclude Include="Source\BrickFunctions.h" />
@@ -121,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BambooFunctions.c" />
+    <ClCompile Include="BombFunctions.c" />
     <ClCompile Include="CheeseFunctions.c" />
     <ClCompile Include="CommandListFactory.c" />
     <ClCompile Include="main.c" />
