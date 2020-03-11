@@ -18,6 +18,7 @@ This file implements the main function and game loop.
 #include "GameState.h" /* struct GameState */
 #include "WorldDataFactory.h" /* CreateTestWorldData */
 #include "WorldData.h" /* WorldData_PrintIntroduction, WorldData_Free */
+#include "GameFlags.h"
 
 
 /* The main program loop */

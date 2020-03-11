@@ -82,7 +82,7 @@ void Manual_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 
 
 /* Build a "brick" object */
-Item* Brick_Build()
+Item* Manual_Build()
 {
 	/* Create a "brick" item, using the functions defined in this file */
 	return Item_Create("manual", "A bomb defusal manual", true, Manual_Use, NULL, NULL);

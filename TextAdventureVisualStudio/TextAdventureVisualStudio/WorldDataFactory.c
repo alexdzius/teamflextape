@@ -216,6 +216,7 @@ Room* Room3b_Build()
 	ItemList_AddItem(Room_GetItemList(room), ExitDoor_Build());
 	ItemList_AddItem(Room_GetItemList(room), Panda_Build());
 	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
+	ItemList_AddItem(Room_GetItemList(room), Workbench_Build());
 
 	/* Return the new room */
 	return room;
@@ -706,6 +707,8 @@ WorldData* CreateInitialWorldData()
 	WorldData_SetRoom(worldData, 21, Room2a_Build());
 	WorldData_SetRoom(worldData, 22, Room2b_Build());
 	WorldData_SetRoom(worldData, 30, Room3_Build());
+	WorldData_SetRoom(worldData, 31, Room3a_Build());
+	WorldData_SetRoom(worldData, 32, Room3b_Build());
 	/* last floor levels*/
 	WorldData_SetRoom(worldData, 40, Room4_Build());
 	WorldData_SetRoom(worldData, 41, Room4a_Build());
