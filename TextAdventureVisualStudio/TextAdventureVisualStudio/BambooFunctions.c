@@ -87,6 +87,42 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 	
 	/********************************************************************************** CHECK IF THIS WORKS AND/OR IS NEEDED *****************/
 	/* check if the cage has already been broken and scored */
+	if (gameState->currentRoomIndex == 61) {
+		if (GameFlags_IsInList(gameState->gameFlags, "objectsUsed")) {
+			printf("You had done the right choice already. Use the Panda!\n");
+			return;
+		}
+		else {
+			/* get the current room */
+			room = WorldData_GetRoom(worldData, gameState->currentRoomIndex);
+
+			/* get the list of items in the current room */
+			roomItemsPtr = Room_GetItemList(room);
+			if (roomItemsPtr == NULL)
+			{
+				return; /* take no action, as something is wrong - we should always have an item list */
+			}
+
+			/* Find the brick in the player's inventory - it should be there, since we are in the Inventory context */
+			bamboo = ItemList_FindItem(gameState->inventory, "bamboo");
+
+			/* Remove the brick from the user's inventory - they won't need it again */
+			gameState->inventory = ItemList_Remove(gameState->inventory, bamboo);
+
+			/* Tell the user what they did */
+			printf("You have pleased the shiba. He now mutates into thicc shiba. He thanks your action. Panda comes back to you\n");
+
+			/* Add to the player's score */
+			GameState_ChangeScore(gameState, 10);
+
+			/* Update the room description to reflect the change in the room */
+			Room_SetDescription(room, "The shiba is asserting dominance, but he loves you. GO with your friend for prosperity.\n");
+
+
+			/* the gold piece has not been scored, so mark the flag */
+			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "objectsUsed");
+		}
+	}
 	if (gameState->currentRoomIndex == 54)
 	{
 		if (GameFlags_IsInList(gameState->gameFlags, "bambooUsed"))
@@ -114,7 +150,7 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 			gameState->inventory = ItemList_Remove(gameState->inventory, bamboo);
 
 			/* Tell the user what they did */
-			printf("You have pleased the shiba. He now mutates into thicc shiba. He thanks your action. Panda will defend you\n");
+			printf("Doge appears to have craved his sustanencenceence. Oh nO he be THICCEN! HE is ROUND. But pretty sure, he seems happy. Busta killa is slighlty angry at his lack of bamboo, but he is humored by the round doge. The gates behind the round doge seem to have opened, and busta killa has grown wings? It's truly a miracle of a day. You are now free! Just MOUNT the PANDA and fly to heaven!\n");
 
 			/* Add to the player's score */
 			GameState_ChangeScore(gameState, 10);

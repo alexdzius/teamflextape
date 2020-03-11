@@ -51,7 +51,7 @@ void HandleLookCommand(CommandData* command, GameState* gameState, WorldData* wo
 	item = ItemList_FindItem(gameState->inventory, command->noun);
 	if (item != NULL && gameState->currentRoomIndex == 50)
 	{
-		printf("The Panda is clearly scared, but he seems fine.\n"); /* clarify the target for the user */
+		printf("Busta Killa whispers: *its free real estate*. You should go DOWN or EAST by now.\n"); /* clarify the target for the user */
 		return;
 	}
 	if (item != NULL)

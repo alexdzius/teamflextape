@@ -9,7 +9,7 @@ This file defines the functions to create a specific item, the "cheese".
 
 ******************************************************************************/
 #include "stdafx.h" /* UNREFERENCED_PARAMETER, NULL*/
-#include "BrickFunctions.h" /* Function declarations */
+#include "CheeseFunctions.h" /* Function declarations */
 #include "GameState.h" /* struct GameState, GameState_ChangeScore */
 #include "GameFlags.h" /* GameFlags_IsInList */
 #include "WorldData.h" /* WorldData_GetRoom */
@@ -63,7 +63,6 @@ void Cheese_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 
 	/* Find the brick in the player's inventory - it should be there, since we are in the Inventory context */
 	cheese = ItemList_FindItem(gameState->inventory, "cheese");
-
 
 	/* Tell the user what they did */
 	printf("You manage to lure the RAT off of the podium with the CHEESE, allowing you a closer look at the BOMB.\n");
