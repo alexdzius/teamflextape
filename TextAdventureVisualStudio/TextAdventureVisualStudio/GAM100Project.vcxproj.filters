@@ -91,6 +91,18 @@
     <ClCompile Include="SnakeFunctions.c">
       <Filter>World Data\Item Functions</Filter>
     </ClCompile>
+    <ClCompile Include="BombFunctions.c">
+      <Filter>World Data\Item Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="PinkWireFunctions.c">
+      <Filter>World Data\Item Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaidWireFunctions.c">
+      <Filter>World Data\Item Functions</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkbenchFunctions.c">
+      <Filter>World Data\Item Functions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\CommandContext.h">
@@ -199,7 +211,20 @@
       <Filter>World Data\Item Functions</Filter>
     </ClInclude>    <ClInclude Include="SnakeFunctions.h">
       <Filter>World Data\Item Functions</Filter>
-    </ClInclude>  </ItemGroup>
+    </ClInclude>
+    <ClInclude Include="BombFunctions.h">
+      <Filter>World Data\Item Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="PinkWireFunctions.h">
+      <Filter>World Data\Item Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaidWireFunctions.h">
+      <Filter>World Data\Item Functions</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkbenchFunctions.h">
+      <Filter>World Data\Item Functions</Filter>
+    </ClInclude>
+  </ItemGroup>
   <ItemGroup>
     <Filter Include="Command Handling">
       <UniqueIdentifier>{3c6a6e39-d98e-49bf-a20b-d61bce50ea2d}</UniqueIdentifier>

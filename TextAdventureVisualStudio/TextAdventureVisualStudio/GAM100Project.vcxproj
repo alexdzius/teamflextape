@@ -85,9 +85,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BambooFunctions.h" />
+    <ClInclude Include="BombFunctions.h" />
     <ClInclude Include="CheeseFunctions.h" />
     <ClInclude Include="ManualFunctions.h" />
     <ClInclude Include="PandaFunctions.h" />
+    <ClInclude Include="PinkWireFunctions.h" />
+    <ClInclude Include="PlaidWireFunctions.h" />
     <ClInclude Include="SnakeFunctions.h" />
     <ClInclude Include="Source\BrickFunctions.h" />
     <ClInclude Include="Source\CommandContext.h" />
@@ -120,14 +123,18 @@
     <ClInclude Include="Source\UseCommandHandler.h" />
     <ClInclude Include="Source\WorldData.h" />
     <ClInclude Include="Source\WorldDataFactory.h" />
+    <ClInclude Include="WorkbenchFunctions.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BambooFunctions.c" />
+    <ClCompile Include="BombFunctions.c" />
     <ClCompile Include="CheeseFunctions.c" />
     <ClCompile Include="CommandListFactory.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="ManualFunctions.c" />
     <ClCompile Include="PandaFunctions.c" />
+    <ClCompile Include="PinkWireFunctions.c" />
+    <ClCompile Include="PlaidWireFunctions.c" />
     <ClCompile Include="SnakeFunctions.c" />
     <ClCompile Include="Source\BrickFunctions.c" />
     <ClCompile Include="Source\CommandHandler.c" />
@@ -153,6 +160,7 @@
     <ClCompile Include="Source\TakeCommandHandler.c" />
     <ClCompile Include="Source\UseCommandHandler.c" />
     <ClCompile Include="Source\WorldData.c" />
+    <ClCompile Include="WorkbenchFunctions.c" />
     <ClCompile Include="WorldDataFactory.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

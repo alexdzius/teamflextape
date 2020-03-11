@@ -18,6 +18,7 @@ This file implements the main function and game loop.
 #include "GameState.h" /* struct GameState */
 #include "WorldDataFactory.h" /* CreateTestWorldData */
 #include "WorldData.h" /* WorldData_PrintIntroduction, WorldData_Free */
+#include "GameFlags.h"
 
 
 /* The main program loop */
@@ -42,6 +43,21 @@ int main()
 
 	/* print the world introduction*/
 	WorldData_PrintIntroduction(worldData, gameState->currentRoomIndex);
+
+	/* bomb time*/
+	int bombrand = (rand() % 3);
+	switch (bombrand)
+	{
+		case 0:
+			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "pinkSolution");
+			break;
+		case 1:
+			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "plaidSolution");
+			break;
+		case 2:
+			gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "greySolution");
+			break;
+	}
 
 
 
