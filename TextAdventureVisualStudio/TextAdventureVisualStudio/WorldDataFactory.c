@@ -522,6 +522,7 @@ Room* Room5f_Build()
 	/* Added exits to respective directions needed*/
 	Room_AddRoomExit(room, "north", 57);
 	Room_AddRoomExit(room, "south", 58);
+	Room_AddRoomExit(room, "die", 66);
 	/* return the new room */
 	return room;
 }
@@ -534,11 +535,13 @@ Room* Room5g_Build()
 	Room* room = NULL;
 
 	/* Call room with respective description */
-	room = Room_Create("The upper end has some things lying around, maybe theres bamboo here? If not, just go WEST, EAST or SOUTH.\n");
+	room = Room_Create("The upper end has some things lying around, maybe theres bamboo here? If not, just go WEST, EAST or SOUTH - or just ACROSS the hall?\n");
 	/* Added exits to respective directions needed*/
 	Room_AddRoomExit(room, "west", 56);
 	Room_AddRoomExit(room, "south", 58);
-	Room_AddRoomExit(room, "east", 59);
+	Room_AddRoomExit(room, "across", 59);
+	Room_AddRoomExit(room, "east", 62);
+	Room_AddRoomExit(room, "die", 66);
 	/* return the new room */
 	return room;
 }
@@ -548,11 +551,12 @@ Room* Room5h_Build()
 	Room* room = NULL;
 
 	/* Call room with respective description */
-	room = Room_Create("There appears to be some green stuff here, maybe something of use? If not, you can always go WEST, EAST or NORTH.\n");
+	room = Room_Create("There appears to be some green stuff here, maybe something of use? If not, you can always go WEST, EAST, SOUTH or NORTH.\n");
 	/* Added exits to respective directions needed*/
 	Room_AddRoomExit(room, "west", 56);
 	Room_AddRoomExit(room, "north", 57);
 	Room_AddRoomExit(room, "east", 59);
+	Room_AddRoomExit(room, "south", 63);
 	/* return the new room */
 	return room;
 }
@@ -561,11 +565,13 @@ Room* Room5i_Build()
 	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
 	/* Call room with respective description */
-	room = Room_Create("This part mostly has a beautiful sunset, though you hear roars and pain from the back, is something here? If not, go WEST, SOUTH or EAST\n");
+	room = Room_Create("This part mostly has a beautiful sunset, though you hear roars and pain from the back, is something here? If not, go in ANY CARDINAL direction, or just zoom ACROSS the hall!\n");
 	/* Added exits to respective directions needed*/
-	Room_AddRoomExit(room, "west", 57);
-	Room_AddRoomExit(room, "south", 58);
+	Room_AddRoomExit(room, "across", 57);
+	Room_AddRoomExit(room, "west", 58);
 	Room_AddRoomExit(room, "east", 60);
+	Room_AddRoomExit(room, "south", 63);
+	Room_AddRoomExit(room, "north", 62);
 	/* Added items to make interactions possible */
 	ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 	/* return the new room */
@@ -573,36 +579,27 @@ Room* Room5i_Build()
 }
 Room* Room5j_Build()
 {
-	/****************** THIS IS THE LAST EXIT ROOM ********************/
-
-
-	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
-	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("There is the Ball! A rotund sphere equal to a massive chonker. It is perfect for the shiba. TAKE it and GO BACK, only if you have evertyhing.\n");
-	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
-	ItemList_AddItem(Room_GetItemList(room), Ball_Build());
-	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-	/* return the new room */
+	/* Call room with respective description */
+	room = Room_Create("There is the Ball! A rotund sphere equal to a massive chonker. It is perfect for the shiba. TAKE it and GO BACK, but go NORTH or WEST if you didnt find two things!!! [please its the lore].\n");
+	/* Added exits to respective directions needed*/
 	Room_AddRoomExit(room, "west", 59);
+	Room_AddRoomExit(room, "north", 64);
 	Room_AddRoomExit(room, "back", 61);
+	/* Added items to make interactions possible */
+	ItemList_AddItem(Room_GetItemList(room), Ball_Build());
 	return room;
 }
 Room* Room5k_Build()
 {
 	/****************** THIS IS THE LAST EXIT ROOM ********************/
-
-
-	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
-
-	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
-	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
+	/* Call room with respective description */
 	room = Room_Create("The Shiba and Panda are still fighting. Give them the items.\n");
-	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
-	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
+	/* Added exits to respective directions needed*/
 	Room_AddRoomExit(room, "panda", 55);
 	/* return the new room */
 	return room;
@@ -615,29 +612,27 @@ Room* Room5l_Build()
 	/* TODO: Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
 
-	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
-	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("The Shiba and Panda are still fighting. Give them the items.\n");
-	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
-	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-	Room_AddRoomExit(room, "panda", 55);
+	/* Call room with respective description */
+	room = Room_Create("There's a cliff bar here - not a cliff, just a bar. Though the JUMP down seems possible :flushed:. There's still items to look for though, stuff can be WEST, SOUTH, EAST.\n");
+	/* Added exits to respective directions needed*/
+	Room_AddRoomExit(room, "west", 57);
+	Room_AddRoomExit(room, "jump", 65);
+	Room_AddRoomExit(room, "east", 64);
+	Room_AddRoomExit(room, "south", 59);
 	/* return the new room */
 	return room;
 }
 Room* Room5m_Build()
-{
-	/****************** THIS IS THE LAST EXIT ROOM ********************/
-
-
-	/* TODO: Pre-declare a room pointer which we will use to build the new room */
+{	
+	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
-
-	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
-	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("The Shiba and Panda are still fighting. Give them the items.\n");
-	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
-	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-	Room_AddRoomExit(room, "panda", 55);
+	/* Call room with respective description */
+	room = Room_Create("You find a small platform, seeing some boxes with things in it. Maybe something is here? If not, then just go WEST, EAST, or JUMP?\n");
+	/* Added exits to respective directions needed*/
+	Room_AddRoomExit(room, "west", 58);
+	Room_AddRoomExit(room, "east", 59);
+	Room_AddRoomExit(room, "jump", 65);
+	Room_AddRoomExit(room, "die", 66);
 	/* return the new room */
 	return room;
 }
@@ -651,17 +646,17 @@ Room* Room5n_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 2 description:
 	"This is room 2.  The room is isolated from the others, but you can see a crack in the east wall, just large enough to get through.\n" */
-	room = Room_Create("The Shiba and Panda are still fighting. Give them the items.\n");
+	room = Room_Create("The corner of the room. I don't think theres anything here. So what are you gonna do, eat pant? I recommend just going south or west.\n");
 	/* TODO REQUIRED: Add an Exit "east" to Room 0 */
 	/* TODO REQUIRED: Add a gold piece to the list of items in the room */
-	Room_AddRoomExit(room, "panda", 55);
+	Room_AddRoomExit(room, "west", 62);
+	Room_AddRoomExit(room, "south", 60);
+	Room_AddRoomExit(room, "die", 66);
 	/* return the new room */
 	return room;
 }
 Room* Room5o_Build()
 {
-
-
 	/* Pre-declare a room pointer which we will use to build the new room */
 	Room* room = NULL;
 	/* Call room with respective description */
@@ -693,7 +688,7 @@ WorldData* CreateInitialWorldData()
 
 	/* TODO REQUIRED: update room count to match the number of rooms you have created and added to the world
 	   if this number doesn't match then your game will either crash or you will end up stuck in a broken room with no exits */
-	int roomCount = 65; /* FIX THIS ONCE DONE */
+	int roomCount = 67; /* FIX THIS ONCE DONE */
 
 	/* create the new WorldData object with 3 rooms */
 	worldData = WorldData_Create("Welcome to my GAM100 Game!\n\n", roomCount);

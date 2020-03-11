@@ -32,6 +32,9 @@ void ExitDoor_Use(CommandContext context, GameState* gameState, WorldData* world
 
 	/* find the egg in the user's inventory */
 	bamboo = ItemList_FindItem(gameState->inventory, "bamboo");
+	if (gameState->currentRoomIndex == 66) {
+		gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "shibaSatisfy");
+	}
 	/* check if both items are in the user's inventory */
 	if (GameFlags_IsInList(gameState->gameFlags, "objectsUsed") && GameFlags_IsInList(gameState->gameFlags, "objectsUsed2")) {
 		gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "shibaSatisfy");
