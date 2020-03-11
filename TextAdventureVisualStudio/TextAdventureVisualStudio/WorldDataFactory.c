@@ -67,9 +67,9 @@ Room* Room0_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
 	"This is room 0. It is a display room with a cage in the middle. You can see a jeweled egg inside the cage.  There is a crack in the west wall, but you can't fit through it from this side.\n" */
-	room = Room_Create("You Awaken. As you groggily open your eyes, you realize that the surrounding room is a prison cell with a locked bamboo door.The lack of natural light combined with the water leaking from the rooms stone crevices show that you’re in some kind of dungeon.");
+	room = Room_Create("You Awaken. As you groggily open your eyes, you realize that the surrounding room is a prison cell with a LOCKED bamboo door.\n You’re in some kind of dungeon. Your small cell contains a BRICK, some super interesting ground, and a green BALL. The cell door is locked.");
 	/* TODO REQUIRED: Add an Exit "north" to Room 1 */
-	Room_AddRoomExit(room, "North", 10);
+	
 	/* TODO BASIC: Add room exit shortcut for "n" */
 
 	/* TODO REQUIRED: add an exit door to the list of items in the room, ExitDoor_Build() */
@@ -90,16 +90,28 @@ Room* Room1_Build()
 
 	/* TODO REQUIRED: Call Room_Create with the Room 1 description:
 	"This is room 1.  There is a large mirror here, and it shimmers as you approach.\n" */
+	room = Room_Create("After ascending the staircase, you are greeted with a large, open Dojo. Large stone statues of an Ox, Rat, Snake, and Dog are placed in the four corners of the room facing inwards.\n In the center of the Dojo stands a humanoid monkey, encased in red and gold plated armor, holding a wooden staff. he yells IS THY WORTHY OF MYYYY TREASURE?!\n IF THOU IS TRUUULY WORTHY, ONE MUST PROVETH THYSELF IN THE TOWER OF POWER *he points north* DEFEAT THE TOWERS CONTESTANTS AND YOU SHALL BE GRANTETH WITH THY TREAAASURE!! IF TREASURE IS NO INTEREST TO YOU, LEAVE *he points west*");
 
 	/* TODO REQUIRED: Add an Exit "through the mirror" to Room 2 */
 	/* TODO BASIC: Add exit shortcuts for "through mirror" and "mirror" */
 
 	/* TODO REQUIRED: Add an Exit "south" back to Room 0 */
 	/* TODO BASIC: Add room exit shortcut for "s" */
-
+	Room_AddRoomExit(room, "North", 21);
+	Room_AddRoomExit(room, "West", 11);
 	/* TODO REQUIRED: Add a brick to the list of items in the room */
 
 	/* return the new room */
+	return room;
+}
+
+Room* Room1a_Build()
+{
+	Room* room = NULL;
+
+	room = Room_Create("You walk over to the door and open it, as you walk through, the door hits you on the way out. The door had a knife. You perish. Press Alt-F4 to Exit");
+
+
 	return room;
 }
 /* TODO REQUIRED: FLOOR 2, SPAM MORE ROOMS WITH 2 PREFIX TO HAVE EXPANDED */
@@ -702,6 +714,8 @@ WorldData* CreateInitialWorldData()
 	WorldData_SetRoom(worldData, 0, Room0_Build());
 	/* TODO REQUIRED: add rooms 1 and 2 to the world data */
 	WorldData_SetRoom(worldData, 10, Room1_Build());
+	WorldData_SetRoom(worldData, 11, Room1a_Build());
+	WorldData_SetRoom(worldData, 20, Room2_Build());
 	WorldData_SetRoom(worldData, 20, Room2_Build());
 	WorldData_SetRoom(worldData, 21, Room2a_Build());
 	WorldData_SetRoom(worldData, 22, Room2b_Build());

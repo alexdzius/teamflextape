@@ -55,6 +55,11 @@ void Ball_Use(CommandContext context, GameState* gameState, WorldData* worldData
 		return; /* take no action if the parameters are invalid */
 	}
 
+	if (gameState->currentRoomIndex == 0)
+	{
+		printf("The ball doesn't like you");
+	}
+
 	/* check if the user is using the panda out of their inventory */
 	if (context != CommandContext_Item_Inventory)
 	{
