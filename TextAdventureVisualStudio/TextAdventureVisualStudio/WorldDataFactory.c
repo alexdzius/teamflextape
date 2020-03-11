@@ -97,8 +97,8 @@ Room* Room1_Build()
 
 	/* TODO REQUIRED: Add an Exit "south" back to Room 0 */
 	/* TODO BASIC: Add room exit shortcut for "s" */
-	Room_AddRoomExit(room, "North", 21);
-	Room_AddRoomExit(room, "West", 11);
+	Room_AddRoomExit(room, "north", 21);
+	Room_AddRoomExit(room, "west", 11);
 	/* TODO REQUIRED: Add a brick to the list of items in the room */
 
 	/* return the new room */
@@ -696,7 +696,7 @@ WorldData* CreateInitialWorldData()
 	WorldData_SetRoom(worldData, 20, Room2_Build());
 	WorldData_SetRoom(worldData, 20, Room2_Build());
 	WorldData_SetRoom(worldData, 21, Room2a_Build());
-	WorldData_SetRoom(worldData, 22, Room2b_Build());
+	
 	WorldData_SetRoom(worldData, 30, Room3_Build());
 	/* last floor levels*/
 	WorldData_SetRoom(worldData, 40, Room4_Build());

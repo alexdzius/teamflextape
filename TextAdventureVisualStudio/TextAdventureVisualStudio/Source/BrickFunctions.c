@@ -70,7 +70,7 @@ void Brick_Use(CommandContext context, GameState* gameState, WorldData* worldDat
 		gameState->gameFlags = GameFlags_Add(gameState->gameFlags, "doorBroke");
 		if (GameFlags_IsInList, "doorBroke")
 		{
-			Room_AddRoomExit(room0, "north", 1);
+			Room_AddRoomExit(room0, "north", 10);
 		}
 
 		return;
