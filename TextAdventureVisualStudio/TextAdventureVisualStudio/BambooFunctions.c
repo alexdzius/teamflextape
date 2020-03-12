@@ -180,7 +180,7 @@ void Bamboo_Use(CommandContext context, GameState* gameState, WorldData* worldDa
 			ItemList_AddItem(Room_GetItemList(room), Bamboo_Build());
 			printf("You throw the bamboo at the machine. The moment it makes contact, Busta Killa roars, charging the machine down. \nIn his hunger, he smashes the machine. You hear a screech from outside as Burger Shogun Employee rushes in. \"I, like, told you not to!\" \nAs he stands close to the machine, panicking, it explodes in his face, killing him instantly. You check his body, and find two things.\n");
 			printf("Firstly, you find a box labeled \"IMPROBABLE WHOPPER! NEW BABMOO SANDWHICH!\" Upon opening the box, you find a piece of BAMBOO between two pieces of bread. \nIt seems ripe for the TAKING.");
-
+			Room_AddRoomExit(room, "north", 30);
 		}
 		else if (GameFlags_IsInList(gameState->gameFlags, "machineBroke"))
 		{

@@ -21,6 +21,7 @@ This could be used to create default states as well as loaded state.
 #include "BallFunctions.h" /* Ball_Build */
 #include "ExitDoorFunctions.h" /* ExitDoor_Build */
 #include "SnakeFunctions.h" /* ExitDoor_Build */
+#include "WorkbenchFunctions.h" /* ExitDoor_Build */
 #include "GameState.h" /* struct GameState, GameState_Create */
 #include "GameFlags.h" /* GameFlags_IsInList */
 #include "stdafx.h" /* UNREFERENCED_PARAMETER, NULL*/
